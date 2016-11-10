@@ -17,6 +17,6 @@ A simple version of Hangman web app, with game status persistent across server a
  * run `npm start`
  * visit `http://localhost:3000/` in your browser
 
- ## Test
+## Test
 
  * run `npm run test`

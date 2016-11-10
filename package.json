@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "start": "export NODE_PATH=. && nodemon app.js --exec babel-node --ignore client/  --ignore state.json",
-    "test": "mocha --compilers js:babel-core/register --require ./config/test.js $(find server -name '*spec.js')",
+    "test": "mocha --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js",
     "test:watch": "npm run test -- --watch",
+    "test:coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "babel server -d dist",
@@ -29,6 +30,7 @@
     "eslint": "^3.8.1",
     "eslint-plugin-mocha": "^4.7.0",
     "eslint-plugin-react": "^6.5.0",
+    "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
     "nodemon": "^1.11.0",
