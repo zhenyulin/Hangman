@@ -3,3 +3,5 @@
 yarn.lock
 npm-debug.log
 /coverage
+.babel.json
+.v8flags.5.4.500.36.undefined.json
