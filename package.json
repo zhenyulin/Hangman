@@ -2,11 +2,15 @@
   "name": "hangman",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zhenyulin/Hangman.git"
+  },
   "scripts": {
     "start": "export NODE_PATH=. && nodemon app.js --exec babel-node --ignore client/  --ignore state.json",
     "test": "mocha --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js",
     "test:watch": "npm run test -- --watch",
-    "test:coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js",
+    "test:coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js --report lcovonly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "babel server -d dist",
