@@ -24,4 +24,4 @@ A simple version of Hangman web app, with game status persistent across server a
 ## Demo
 
  * CI/CD based on CircleCI and Docker
- * visit `http://hangman-1.0b366062.cont.dockerapp.io:32777`
+ * visit [demo](http://hangman-1.02658178.cont.dockerapp.io:32778)
