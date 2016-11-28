@@ -1,6 +1,7 @@
 /node_modules/
 /dist/
 /coverage
+/reports
 .config/configstore
 yarn.lock
 npm-debug.log

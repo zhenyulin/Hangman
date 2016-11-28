@@ -7,10 +7,12 @@
     "url": "git://github.com/zhenyulin/Hangman.git"
   },
   "scripts": {
-    "start": "export NODE_PATH=. && nodemon app.js --exec babel-node --ignore client/  --ignore state.json",
-    "test": "mocha --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js",
+    "postinstall": "node_modules/selenium-standalone/bin/selenium-standalone install",
+    "start": "export NODE_PATH=. && nodemon server/app.js --exec babel-node --ignore client/  --ignore state.json",
+    "test": "mocha --compilers js:babel-core/register --require ./config/mocha.js server/**/*.spec.js",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js --report lcovonly",
+    "e2e": "node_modules/.bin/nightwatch --config ./config/nightwatch.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "babel server -d dist",
@@ -24,6 +26,7 @@
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.7",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
@@ -37,11 +40,13 @@
     "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
+    "nightwatch": "^0.9.9",
     "nodemon": "^1.11.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "redux-logger": "^2.7.4",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
+    "selenium-standalone": "^5.8.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
@@ -65,7 +70,8 @@
       "react"
     ],
     "plugins": [
-      "react-hot-loader/babel"
+      "react-hot-loader/babel",
+      "add-module-exports"
     ]
   }
 }

@@ -4,7 +4,7 @@ import SocketIO from 'socket.io';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from 'webpack.config';
+import webpackConfig from 'config/webpack';
 import management from 'server/router/management';
 import hangman from 'server/router/hangman';
 import setupStore from 'server/store/store';
