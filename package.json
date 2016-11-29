@@ -16,7 +16,7 @@
     "e2e": "node_modules/.bin/nightwatch --config ./config/nightwatch.js",
     "lint": "eslint server client config test -c config/eslint.js",
     "lint:fix": "npm run lint -- --fix",
-    "build:server": "babel server -d dist/server --ignore server/**/*.spec.js && cp server/state.json dist/server",
+    "build:server": "babel server -d dist/server --ignore server/**/*.spec.js --copy-files",
     "build:client": "webpack -p --config config/webpack.prod.js --progress --colors && cp client/index.html dist/client",
     "build": "npm run build:server && npm run build:client",
     "serve": "export NODE_PATH=./dist && NODE_ENV=production node dist/server/app.js",

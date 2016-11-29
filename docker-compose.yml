@@ -1,8 +1,0 @@
-app:
-  image: node
-  volumes:
-    - ./:/root/
-  working_dir: /root/
-  command: npm start
-  ports:
-    - "3000:3000"
