@@ -4,13 +4,13 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ## About
 
- * Following principal of Isomorphic Application and TDD
  * Use Redux, Immutable to manage game state on server/client
  * Use Socket.io to streamline client/server communication
  * Use Node, Express as the server framework
+ * CI/CD setup for CircleCI and Docker
  * Database such as Mongo can be connected to store state data
 
-## Get Started
+## Production Demo
 
  * clone locally
  * run `npm install`
@@ -21,8 +21,5 @@ A simple version of Hangman web app, with game status persistent across server a
 ## Test
 
  * unit test `npm run test`
+ * test coverage `npm run test:coverage`
  * e2e test `npm run e2e`
-
-## Demo
-
- * CI/CD based on CircleCI and Docker
