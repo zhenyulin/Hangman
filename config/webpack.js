@@ -16,14 +16,13 @@ export default {
 		extensions: ['', '.js', '.jsx']
 	},
 	module: {
-		loaders: [{
-			test: /\.js?$/,
-			exclude: /node_modules/,
-			loader: 'babel'
-		}, {
-			test: /\.css?$/,
-			loader: 'style!css'
-		}]
+		loaders: [
+			{
+				test: /\.js?$/,
+				exclude: /node_modules/,
+				loader: 'babel'
+			}
+		]
 	},
 	plugin: [
 		new webpack.HotModuleReplacementPlugin()

@@ -19,9 +19,10 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ## Test
 
- * run `npm run test`
+ * unit test `npm run test`
+ * e2e test `npm run e2e`
 
 ## Demo
 
  * CI/CD based on CircleCI and Docker
- * visit [demo](http://hangman-1.02658178.cont.dockerapp.io:32778)
+ * Production optimisation can be further implemented

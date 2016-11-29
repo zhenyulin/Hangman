@@ -7,7 +7,7 @@ export default {
 	},
 	'Smoke test': browser => {
 		browser
-			.assert.visible('#app > div', 'Check if app has rendered with React')
+			.assert.visible('#app > div', 'If app has rendered with React')
 			.assert.title('Hangman');
 	},
 	after: browser => browser.end(),

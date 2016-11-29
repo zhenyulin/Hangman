@@ -1,19 +1,18 @@
 import express from 'express';
 import http from 'http';
 import SocketIO from 'socket.io';
+import fs from 'fs';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from 'config/webpack';
-import management from 'server/router/management';
-import hangman from 'server/router/hangman';
 import setupStore from 'server/store/store';
-import fs from 'fs';
+import router from 'server/router';
 
 const app = express();
 const server = http.Server(app);
-const compiler = webpack(webpackConfig);
 const io = SocketIO(server);
+const compiler = webpack(webpackConfig);
 const store = setupStore();
 
 io.on('connection', socket => {
@@ -24,7 +23,7 @@ io.on('connection', socket => {
 store.subscribe(() => {
 	const state = store.getState().toJS();
 	io.emit('state', state);
-	fs.writeFile('state.json', JSON.stringify(state));
+	fs.writeFile('server/state.json', JSON.stringify(state));
 });
 
 app.use((req, res, next) => {
@@ -36,8 +35,7 @@ app.use(webpackDevMiddleware(compiler, {
 	publicPath: webpackConfig.output.publicPath
 }));
 app.use(webpackHotMiddleware(compiler));
-app.use('/management', management);
-app.use('/', hangman);
+app.use(router);
 
 server.listen(3000);
 console.log('server started at port 3000');
