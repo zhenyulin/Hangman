@@ -27,9 +27,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use(express.static(path.join(__dirname, '../client')));
-app.use(router);
-
 if (process.env.NODE_ENV !== 'production') {
 	const webpack = require('webpack');
 	const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -42,6 +39,9 @@ if (process.env.NODE_ENV !== 'production') {
 		publicPath: webpackConfig.output.publicPath
 	}));
 }
+
+app.use(express.static(path.join(__dirname, '../client')));
+app.use(router);
 
 server.listen(3000);
 console.log('server started at port 3000');

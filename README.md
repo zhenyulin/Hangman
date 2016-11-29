@@ -14,7 +14,8 @@ A simple version of Hangman web app, with game status persistent across server a
 
  * clone locally
  * run `npm install`
- * run `npm start`
+ * run `npm run build`
+ * run `npm run serve`
  * visit `http://localhost:3000/` in your browser
 
 ## Test
@@ -25,4 +26,3 @@ A simple version of Hangman web app, with game status persistent across server a
 ## Demo
 
  * CI/CD based on CircleCI and Docker
- * Production optimisation can be further implemented

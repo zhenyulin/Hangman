@@ -6,7 +6,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development";
 export default {
 	devtool: 'eval-source-map',
 	entry: [
-		'webpack-hot-middleware/client',
 		path.resolve('./client/index.js')
 	],
 	output: {
