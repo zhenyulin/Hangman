@@ -1,6 +1,4 @@
-# Hangman
-
-[![CircleCI](https://circleci.com/gh/zhenyulin/Hangman.svg?style=shield)](https://circleci.com/gh/zhenyulin/Hangman)
+# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/Hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/Hangman)
 
 A simple version of Hangman web app, with game status persistent across server and browser restart
 
@@ -9,10 +7,10 @@ A simple version of Hangman web app, with game status persistent across server a
  * Use Redux, Immutable to manage game state on server/client
  * Use Socket.io to streamline client/server communication
  * Use Node, Express as the server framework
- * CI/CD setup for CircleCI and Docker
  * Database such as Mongo can be connected to store state data
+ * CI/CD `GitHub -> CircleCI -> Docker Image -> Docker Cloud Service`
 
-## Production Demo
+## Serve
 
  * clone locally
  * run `npm install`
@@ -25,3 +23,7 @@ A simple version of Hangman web app, with game status persistent across server a
  * unit test `npm run test`
  * test coverage `npm run test:coverage`
  * e2e test `npm run e2e`
+
+## Online Demo
+
+ * visit [Demo](http://hangman.98e5e75d.svc.dockerapp.io:3000/)
