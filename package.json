@@ -11,12 +11,14 @@
     "start": "export NODE_PATH=. && nodemon server/app.js --exec babel-node --ignore client/  --ignore server/state.json",
     "test": "mocha --compilers js:babel-core/register --require ./config/mocha.js server/**/*.spec.js",
     "test:watch": "npm run test -- --watch",
-    "test:coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js --report lcovonly",
+    "test:coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/mocha.js server/**/*.spec.js --report lcovonly",
     "e2e": "node_modules/.bin/nightwatch --config ./config/nightwatch.js",
     "lint": "eslint server client config test -c config/eslint.js",
     "lint:fix": "npm run lint -- --fix",
-    "build": "babel server -d dist",
-    "serve": "export NODE_PATH=. && node dist/app.js"
+    "build:server": "babel server -d dist/server --ignore server/**/*.spec.js && cp server/state.json dist/server",
+    "build:client": "webpack -p --config config/webpack.prod.js --progress --colors && cp client/index.html dist/client",
+    "build": "npm run build:server && npm run build:client",
+    "serve": "export NODE_PATH=./dist && NODE_ENV=production node dist/server/app.js"
   },
   "keywords": [],
   "author": "Zhenyu Lin",
