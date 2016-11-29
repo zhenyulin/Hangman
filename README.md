@@ -1,5 +1,7 @@
 # Hangman
 
+[![CircleCI](https://circleci.com/gh/zhenyulin/Hangman.svg?style=shield)](https://circleci.com/gh/zhenyulin/Hangman)
+
 A simple version of Hangman web app, with game status persistent across server and browser restart
 
 ## About
