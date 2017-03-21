@@ -26,4 +26,4 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ## Online Demo
 
- * visit [Demo](http://hangman.98e5e75d.svc.dockerapp.io:3000/)
+ * visit [Demo](http://elitir.com:3456/)
