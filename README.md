@@ -27,3 +27,10 @@ A simple version of Hangman web app, with game status persistent across server a
 ## Online Demo
 
  * visit [Demo](http://elitir.com:3456/)
+
+## TODO
+
+ * update test framework to Jest, Cumcumber
+ * data stream control with RxJS
+ * front end code tidy up
+ * update to ducks/controller file pattern
