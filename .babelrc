@@ -1,5 +1,9 @@
 {
   "plugins": [
+    "transform-class-properties",
+    "transform-runtime",
+    "add-module-exports",
+    "transform-html-import-to-string",
     "react-hot-loader/babel"
   ],
   "presets": [

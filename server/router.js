@@ -1,7 +1,7 @@
 import express from 'express';
 
-import management from 'server/router/management';
-import hangman from 'server/router/hangman';
+import hangman from 'server/handlers/hangman';
+import management from 'server/handlers/management';
 
 let router = express.Router();
 

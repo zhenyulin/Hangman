@@ -1,3 +1,3 @@
-export const DEVELOPMENT_DB = '';
-export const PRODUCTION_DB = '';
+export const DEVELOPMENT_DB = 'mongodb://34.249.87.142:29001/dev';
+export const PRODUCTION_DB = 'mongodb://34.249.87.142:29001/hangman';
 export const PORT = process.env.PORT || 3000;

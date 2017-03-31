@@ -2,12 +2,13 @@
 /dist/
 /coverage
 /reports
+docker_compose/
+buid/
 
-yarn.lock
 npm-debug.log
-
 .babel.json
 .v8flags.5.4.500.36.undefined.json
-/.config
+.DS_Store
+.config
 
-docker-compose.yml
+/server/config/constant.js

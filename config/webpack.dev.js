@@ -6,6 +6,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development";
 export default {
 	devtool: 'eval-source-map',
 	entry: [
+		'webpack-hot-middleware/client',
+		'webpack/hot/only-dev-server',
 		path.resolve('./client/index.js')
 	],
 	output: {
@@ -13,20 +15,47 @@ export default {
 		filename: 'bundle.js',
 		publicPath: '/'
 	},
+	plugins: [
+		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin()
+	],
 	resolve: {
 		root: path.resolve('./client'),
-		extensions: ['', '.js', '.jsx']
+		extensions: ['', '.js', '.jsx'],
+		alias: {
+			request: 'browser-request',
+		}
 	},
 	module: {
 		loaders: [
 			{
-				test: /\.js?$/,
+				test: /\.js$/,
+				loaders: ['babel'],
+				include: path.resolve('./client'),
 				exclude: /node_modules/,
-				loader: 'babel'
-			}
+			},
+			{
+				test: /\.scss$/,
+				include: path.resolve('./client'),
+				loaders: ['style', 'css', 'postcss', 'sass']
+			},
+			{
+				test: /\.json$/,
+				loader: 'json'
+			},
+			{
+		        test: /\.(jpe?g|png|gif|svg)$/i,
+		        loaders: [
+		            'file?hash=sha512&digest=hex&name=[hash].[ext]',
+		            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+		        ]
+		    },
 		]
 	},
-	plugin: [
-		new webpack.HotModuleReplacementPlugin()
+	postcss: () => [
+		require('postcss-smart-import')({ /* ...options */ }),
+		require('precss')({ /* ...options */ }),
+		require('autoprefixer')({ /* ...options */ })
 	]
 };

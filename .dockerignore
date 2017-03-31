@@ -1,0 +1,14 @@
+coverage/
+node_modules/
+reports/
+docker_compose/
+dist/
+build/
+test/
+data/
+
+Dockerfile
+README.md
+.gitignore
+.gitlab-ci.yml
+.DS_Store
