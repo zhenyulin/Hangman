@@ -13,16 +13,15 @@ A simple version of Hangman web app, with game status persistent across server a
 ## Serve
 
  * clone locally
- * run `npm install`
- * run `npm run build`
- * run `npm run serve`
+ * run `npm install` / `yarn`
+ * run `npm run serve:fresh` / `yarn serve:fresh`
  * visit `http://localhost:3000/` in your browser
 
 ## Test
 
- * unit test `npm run test`
- * test coverage `npm run test:coverage`
- * e2e test `npm run e2e`
+ * unit test `npm run test` / `yarn test`
+ * test coverage `npm run coverage` / `yarn coverage`
+ * e2e test `npm run e2e:setup` and `npm run e2e`
 
 ## Online Demo
 
@@ -34,3 +33,4 @@ A simple version of Hangman web app, with game status persistent across server a
  * data stream control with RxJS
  * front end code tidy up
  * update to ducks/controller file pattern
+ * description of boilerplate: babel dependencies, webpack dependencies, others
