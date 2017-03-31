@@ -2,31 +2,32 @@
   "name": "hangman",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "author": "Zhenyu Lin",
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zhenyulin/Hangman.git"
+    "url": "git://github.com/zhenyulin/hangman.git"
   },
   "scripts": {
-    "start": "export NODE_PATH=. && nodemon app.js --exec babel-node --ignore client/  --ignore state.json",
+    "start": "NODE_PATH=. nodemon server/server.js --exec babel-node --ignore client/  --ignore state.json",
     "test": "mocha --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js --report lcovonly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "babel server -d dist",
-    "serve": "node dist/app.js"
+    "build:server": "babel server -d dist/server --copy-files --ignore server/**/*.spec.js",
+    "build:client": "webpack -p --config config/webpack.prod.js --progress --bail && cp client/index.html dist/client",
+    "build": "npm run build:server && npm run build:client",
+    "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/server.js"
   },
-  "keywords": [],
-  "author": "Zhenyu Lin",
-  "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.7",
-    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "chai-immutable": "^1.6.0",
@@ -37,6 +38,7 @@
     "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
+    "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "redux-logger": "^2.7.4",
@@ -48,8 +50,12 @@
     "webpack-hot-middleware": "^2.13.1"
   },
   "dependencies": {
+    "compression": "^1.6.2",
+    "cors": "^2.8.3",
     "express": "^4.14.0",
+    "helmet": "^3.5.0",
     "immutable": "^3.8.1",
+    "mongoose": "^4.9.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
