@@ -1,10 +1,11 @@
 import express from 'express';
-import hangman from './handlers/hangman';
-import management from './handlers/management';
+
+import management from 'server/router/management';
+import hangman from 'server/router/hangman';
 
 let router = express.Router();
 
-router.use('/management', management);
 router.use('/', hangman);
+router.use('/management', management);
 
 export default router;

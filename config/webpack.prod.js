@@ -4,7 +4,7 @@ const webpack = require('webpack');
 process.env.NODE_ENV = process.env.NODE_ENV || "production";
 
 module.exports = {
-	devtool: 'cheap-module-source-map',
+	devtool: 'eval-cheap-module-source-map',
 	entry: path.resolve('./client/index.js'),
 	output: {
 		path: path.resolve('./dist/client/'),
@@ -13,15 +13,41 @@ module.exports = {
 	},
 	resolve: {
 		root: path.resolve('./client'),
-		extensions: ['', '.js', '.jsx']
+		extensions: ['', '.js', '.jsx'],
+		alias: {
+			request: 'browser-request',
+		}
 	},
 	module: {
-		loaders: [{
-			test: /\.js?$/,
-			exclude: /node_modules/,
-			loader: 'babel'
-		}],
+		loaders: [
+			{
+				test: /\.js?$/,
+				exclude: /node_modules/,
+				loader: 'babel'
+			},
+			{
+				test: /\.scss$/,
+				include: path.resolve('./client'),
+				loaders: ['style', 'css', 'postcss', 'sass']
+			},
+			{
+				test: /\.json$/,
+				loader: 'json'
+			},
+			{
+		        test: /\.(jpe?g|png|gif|svg)$/i,
+		        loaders: [
+		            'file?hash=sha512&digest=hex&name=[hash].[ext]',
+		            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+		        ]
+		    }
+		],
 	},
+	postcss: () => [
+		require('postcss-smart-import')({ /* ...options */ }),
+		require('precss')({ /* ...options */ }),
+		require('autoprefixer')({ /* ...options */ })
+	],
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': {
