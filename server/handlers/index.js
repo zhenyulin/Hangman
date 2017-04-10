@@ -1,10 +1,11 @@
 import express from 'express';
 import path from 'path';
+import indexPage from '../../client/index.html';
 
 const router = express.Router();
 
-router.use('/', (req,res) => {
-	res.sendFile(path.join(__dirname + '../client/index.html'));
+router.get('/', (req,res) => {
+	res.sendFile(indexPage);
 });
 
 export default router;

@@ -34,3 +34,4 @@ A simple version of Hangman web app, with game status persistent across server a
  * front end code tidy up
  * update to ducks/controller file pattern
  * description of boilerplate: babel dependencies, webpack dependencies, others
+ * CI configuration update

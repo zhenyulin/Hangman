@@ -12,6 +12,6 @@ export default function setupStore(socket) {
 		const logger = createLogger();
 		middleware = [...middleware, thunk, promise, logger];
 	}
-	
+
 	return applyMiddleware(...middleware)(createStore)(reducer);
 }

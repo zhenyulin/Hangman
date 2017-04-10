@@ -4,7 +4,7 @@ import {restart, next, guess} from './core';
 import {MAX_LIFE} from './constant';
 
 describe('application logic', () => {
-	
+
 	describe('restart', () => {
 		it('resets the state and restart game', () => {
 			const state = Map({
