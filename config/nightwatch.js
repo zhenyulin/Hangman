@@ -40,12 +40,6 @@ module.exports = {
 				"javascriptEnabled": true,
 				"acceptSslCerts": true
 			}
-		},
-
-		"edge": {
-			"desiredCapabilities": {
-				"browserName": "MicrosoftEdge"
-			}
 		}
 	}
 };

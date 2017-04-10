@@ -29,9 +29,8 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ## TODO
 
+ * front end code split up into components
  * update test framework to Jest, Cumcumber
  * data stream control with RxJS
- * front end code tidy up
- * update to ducks/controller file pattern
  * description of boilerplate: babel dependencies, webpack dependencies, others
  * CI configuration update

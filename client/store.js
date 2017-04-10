@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import reducer from './reducers';
+import reducer from 'controllers';
 import remoteAction from 'middleware/remote';
 
 export default function setupStore(socket) {

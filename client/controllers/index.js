@@ -8,6 +8,18 @@ const initialState = Map({
 	mask: ''
 });
 
+export const SET_STATE = 'SET_STATE';
+export const GUESS = 'GUESS';
+export const NEXT = 'NEXT';
+export const RESTART = 'RESTART';
+
+export const Actions = {
+	setState: state => ({type: SET_STATE,  state}),
+	guess: letter => ({remote: true, type: GUESS, letter}),
+	next: () => ({remote: true, type: NEXT}),
+	restart: () => ({remote: true, type: RESTART}),
+}
+
 function setState(state, newState){
 	return state.merge(newState);
 }

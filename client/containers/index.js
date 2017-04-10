@@ -1,27 +1,27 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import * as actionsCreator from 'actions';
+import { Actions as actionsCreator } from 'controllers';
 
 export class App extends React.PureComponent {
 	render() {
 		const {end, complete, life, guessed, mask} = this.props;
 		const {className} = this.props;
 		const ALPHABET = [
-			'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 
-			'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 
+			'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+			'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
 			'w', 'x', 'y', 'z'
 		];
 
 		return (
 			<div className={className}>
-				{end ? <div>You have played all games.</div> : 
+				{end ? <div>You have played all games.</div> :
 					<div>
 						<div className='life'>Life: {life}</div>
 						<div>Animal Name: {mask}</div>
 						{complete || life === 0 ? null :
 							<div className='letterButtonContainer'>
-								{ALPHABET.map(letter => 
+								{ALPHABET.map(letter =>
 									<button
 										className='letterButton'
 										key={letter}
@@ -33,16 +33,16 @@ export class App extends React.PureComponent {
 								)}
 							</div>
 						}
-						{complete ? 
+						{complete ?
 							<div>You have got the right word!</div>
 							 : null
 						}
-						{life === 0 ? 
+						{life === 0 ?
 							<div>Sorry, you didn't get it this time.</div> 
 							: null
 						}
 						<button
-							className='nextButton' 
+							className='nextButton'
 							onClick={() => this.props.next()}
 						>
 							Next Word
