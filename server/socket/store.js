@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 export default function configIO(io, store, app) {
 	io.on('connection', socket => {
@@ -10,7 +11,7 @@ export default function configIO(io, store, app) {
 		const state = store.getState().toJS();
 		const stateJson = JSON.stringify(state);
 		io.emit('state', state);
-		fs.writeFile(`${__dirname}/state.json`, stateJson, err => {
+		fs.writeFile(path.resolve('server/state.json'), stateJson, err => {
 			if(err) { console.log(err); }
 		});
 	});
