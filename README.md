@@ -6,7 +6,7 @@ A simple version of Hangman web app, with game status persistent across server a
 
  * Use Redux, Immutable as isomorphic state management on both client and server
  * Use Socket.io to streamline client/server data communication
- * CI/CD `GitHub -> CircleCI -> Docker Image -> Docker Cloud Service`
+ * CI/CD `GitHub -> CircleCI -> Docker Image -> Private Docker Host`
  * Database such as Mongo can be connected to store state data
 
 ## Serve
