@@ -10,5 +10,3 @@ npm-debug.log
 .v8flags.5.4.500.36.undefined.json
 .DS_Store
 .config
-
-/server/config/constant.js
