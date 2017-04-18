@@ -2,6 +2,7 @@
 
 A simple version of Hangman web app, with game status persistent across server and browser restart
 
+
 ### About
 
  * Use Redux, Immutable to manage game state on server/client
@@ -27,7 +28,7 @@ A simple version of Hangman web app, with game status persistent across server a
 
  * visit [Demo](http://elitir.com:3456/)
 
-## TODO
+### TODO
 
  * integrate react-router into the boilerplate
  * integrate Reselect, Redux-segment
@@ -37,4 +38,4 @@ A simple version of Hangman web app, with game status persistent across server a
  * CI configuration update
  
  ---
- ## Boilerpate Dependencies Gloss
+ ### Boilerpate Dependencies Gloss
