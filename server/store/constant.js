@@ -16,3 +16,6 @@ export const INITIAL_STATE = {
 	mask: '',
 	guessed: []
 };
+export const GUESS = 'hangman:GUESS';
+export const NEXT = 'hangman:NEXT';
+export const RESTART = 'hangman:RESTART';
