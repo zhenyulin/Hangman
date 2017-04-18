@@ -1,5 +1,7 @@
 import express from 'express';
 import http from 'http';
+import bodyParser from 'body-parser';
+import passport from 'passport';
 import cors from 'cors';
 import compression from 'compression';
 import SocketIO from 'socket.io';
@@ -39,6 +41,9 @@ else {
 configIO(io, store, app);
 app.use(cors());
 app.use(compression());
+app.use(passport.initialize());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../client`));
 app.use(router);
 server.listen(PORT, () => console.timeEnd(MARK));
