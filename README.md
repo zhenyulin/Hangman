@@ -30,6 +30,7 @@ A simple version of Hangman web app, with game status persistent across server a
 
  * update to latest react-router / react-router-redux
  * integrate Reselect, Redux-segment
+ * add auth to the boilerplate and support individual status
  * update test framework to Jest, Cumcumber
  * use RxJS / Redux-saga wherever practical
  * CI configuration update
