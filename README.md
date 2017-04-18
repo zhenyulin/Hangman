@@ -36,7 +36,10 @@ A simple version of Hangman web app, with game status persistent across server a
  * explanation of each dependencies
 
 ---
+
+
 ## Boilerpate Dependencies Dictionary
+
 
 ### React Related Dependencies
  * react-addons-perf
