@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import { Actions as hangmanController } from 'controllers/hangman';
+import { Actions as Controllers } from 'controllers/hangman';
 
 import GamePanel from './elements/game-panel';
 import BasicButton from 'components/basic-button';
 
-export class App extends React.PureComponent {
+export class Hangman extends React.PureComponent {
 	render() {
 		const {className, end, complete, life, guessed, mask} = this.props;
 		const {guess, next, restart} = this.props;
@@ -40,7 +40,7 @@ const mapStateToProps = state => ({
 	mask: state.hangman.get('mask'),
 });
 
-const component = styled(App)`
+const component = styled(Hangman)`
 	width: 360px;
 	margin: 240px auto;
 	font-family: 'Helvetica';
@@ -62,4 +62,4 @@ const component = styled(App)`
 	}
 `;
 
-export default connect(mapStateToProps, hangmanController)(component);
+export default connect(mapStateToProps, Controllers)(component);
