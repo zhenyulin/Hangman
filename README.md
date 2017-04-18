@@ -1,4 +1,4 @@
-# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/Hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/Hangman)
+# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/hangman)
 
 A simple version of Hangman web app, with game status persistent across server and browser restart
 
@@ -29,7 +29,8 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ## TODO
 
- * front end code split up into components
+ * integrate react-router into the boilerplate
+ * integrate Reselect, Redux-segment
  * update test framework to Jest, Cumcumber
  * data stream control with RxJS
  * description of boilerplate: babel dependencies, webpack dependencies, others

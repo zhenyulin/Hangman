@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import io from 'socket.io-client';
 import setupStore from 'store';
-import App from 'containers';
-import { Actions } from 'controllers';
+import App from 'containers/hangman/';
+import { Actions } from 'controllers/hangman';
 
 const socket = io.connect();
 const store = setupStore(socket);
