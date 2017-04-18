@@ -8,10 +8,10 @@ const initialState = Map({
 	mask: ''
 });
 
-export const SET_STATE = 'SET_STATE';
-export const GUESS = 'GUESS';
-export const NEXT = 'NEXT';
-export const RESTART = 'RESTART';
+export const SET_STATE = 'hangman:SET_STATE';
+export const GUESS = 'hangman:GUESS';
+export const NEXT = 'hangman:NEXT';
+export const RESTART = 'hangman:RESTART';
 
 export const Actions = {
 	setState: state => ({type: SET_STATE,  state}),
@@ -26,7 +26,7 @@ function setState(state, newState){
 
 export default function reducer(state=initialState, action){
 	switch (action.type){
-	case 'SET_STATE':
+	case SET_STATE:
 		return setState(state, action.state);
 	default:
 		return state;
