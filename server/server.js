@@ -5,7 +5,7 @@ import compression from 'compression';
 import SocketIO from 'socket.io';
 import setupStore from 'server/store/store';
 import connectDB from 'server/config/db';
-import configIO from 'server/socket/store';
+import configIO from 'server/socket';
 import router from 'server/router';
 import { PORT } from 'server/config/constant';
 

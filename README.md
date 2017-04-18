@@ -4,11 +4,10 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ## About
 
- * Use Redux, Immutable to manage game state on server/client
- * Use Socket.io to streamline client/server communication
- * Use Node, Express as the server framework
- * Database such as Mongo can be connected to store state data
+ * Use Redux, Immutable as isomorphic state management on both client and server
+ * Use Socket.io to streamline client/server data communication
  * CI/CD `GitHub -> CircleCI -> Docker Image -> Docker Cloud Service`
+ * Database such as Mongo can be connected to store state data
 
 ## Serve
 
@@ -29,12 +28,12 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ## TODO
 
- * integrate react-router into the boilerplate
+ * update to latest react-router / react-router-redux
  * integrate Reselect, Redux-segment
  * update test framework to Jest, Cumcumber
- * data stream control with RxJS
- * description of boilerplate: babel dependencies, webpack dependencies, others
+ * use RxJS / Redux-saga wherever practical
  * CI configuration update
+ * description of boilerplate: babel dependencies, webpack dependencies, others
  
  ---
  ## Boilerpate Dependencies Gloss

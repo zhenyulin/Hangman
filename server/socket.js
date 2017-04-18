@@ -15,10 +15,4 @@ export default function configIO(io, store, app) {
 			if(err) { console.log(err); }
 		});
 	});
-
-	// TODO: is there a better way to append the store to the middleware? / give data to management
-	app.use((req, res, next) => {
-		req.store = store;
-		next();
-	});
 }

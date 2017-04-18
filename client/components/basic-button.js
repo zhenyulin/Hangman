@@ -5,6 +5,7 @@ export class FunctionButton extends React.PureComponent {
 	static propTypes = {
 		func: React.PropTypes.func,
 		text: React.PropTypes.string,
+		disabled: React.PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -12,12 +13,13 @@ export class FunctionButton extends React.PureComponent {
 	};
 
 	render() {
-		const { className, text } = this.props;
+		const { className, text, disabled } = this.props;
 		const { func } = this.props;
 		return (
 			<button
 				className={className}
 				onClick={() => func()}
+				disabled={disabled}
 			>
 				{text}
 			</button>
@@ -31,4 +33,8 @@ export default styled(FunctionButton)`
 	margin: 5px;
 	cursor: pointer;
 	font-size: 13px;
+
+	&[disabled] {
+		color: grey;
+	}
 `;

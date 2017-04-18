@@ -13,6 +13,7 @@ const socket = io.connect();
 const store = setupStore(socket);
 const history = syncHistoryWithStore(hashHistory, store);
 
+//TODO: put socket setup in a seperate module
 socket.on('state', state => store.dispatch(HangmanController.setState(state)));
 
 ReactDOM.render(
