@@ -38,40 +38,6 @@ A simple version of Hangman web app, with game status persistent across server a
 ---
 ## Boilerpate Dependencies Dictionary
 
-### Babel Dependencies
- * babel-cli
- * babel-core
- * babel-plugin-add-module-exports
- * babel-plugin-react-transform
- * babel-plugin-syntax-decorators
- * babel-plugin-transform-class-properties
- * babel-plugin-transform-html-import-to-string
- * babel-plugin-transform-runtime
- * babel-polyfill
- * babel-preset-latest
- * babel-preset-react
- * babel-preset-react-hmre
- * babel-register
- * babel-runtime
-
-
-### Webpack Dependencies
- * autoprefixer
- * babel-loader
- * css-loader
- * extract-text-webpack-plugin
- * file-loader
- * ignore-styles
- * image-webpack-loader
- * json-loader
- * node-sass
- * postcss-loader
- * postcss-smart-import
- * precss
- * sass-loader
- * style-loader
- * webpack
-
 ### React Related Dependencies
  * react-addons-perf
  * react-addons-test-utils
@@ -123,3 +89,37 @@ A simple version of Hangman web app, with game status persistent across server a
 ### E2E Test
  * nightwatch
  * selenium-standalone
+
+### Babel Dependencies
+ * babel-cli
+ * babel-core
+ * babel-plugin-add-module-exports
+ * babel-plugin-react-transform
+ * babel-plugin-syntax-decorators
+ * babel-plugin-transform-class-properties
+ * babel-plugin-transform-html-import-to-string
+ * babel-plugin-transform-runtime
+ * babel-polyfill
+ * babel-preset-latest
+ * babel-preset-react
+ * babel-preset-react-hmre
+ * babel-register
+ * babel-runtime
+
+
+### Webpack Dependencies
+ * autoprefixer
+ * babel-loader
+ * css-loader
+ * extract-text-webpack-plugin
+ * file-loader
+ * ignore-styles
+ * image-webpack-loader
+ * json-loader
+ * node-sass
+ * postcss-loader
+ * postcss-smart-import
+ * precss
+ * sass-loader
+ * style-loader
+ * webpack
