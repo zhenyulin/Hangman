@@ -5,7 +5,7 @@ import passport from 'passport';
 import cors from 'cors';
 import compression from 'compression';
 import SocketIO from 'socket.io';
-import setupStore from 'server/store/store';
+import setupStore from 'server/store';
 import connectDB from 'server/config/db';
 import configIO from 'server/socket';
 import router from 'server/router';
