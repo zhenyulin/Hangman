@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Actions as Controllers } from 'controllers/hangman';
 import { push } from 'react-router-redux';

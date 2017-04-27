@@ -3,13 +3,26 @@ import { routerMiddleware } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 import reducer from 'controllers';
 import remoteAction from 'middleware/remote';
-import { createTracker } from 'redux-segment';
+import { createTracker, EventTypes } from 'redux-segment';
+
+const trackerMap = {
+	mapper: {
+		'@@router/LOCATION_CHANGE': (getState, action) => ({
+			eventType: EventTypes.page,
+	        eventPayload: {
+	        	properties: {
+	        		path: action.payload.pathname,
+	        	},
+	        },
+		}),
+	},
+};
 
 export default function setupStore(socket) {
 	let middleware = [
 		remoteAction(socket),
+		createTracker(trackerMap),
 		routerMiddleware(hashHistory),
-		createTracker(),
 	];
 
 	if (process.env.NODE_ENV !== 'production') {
