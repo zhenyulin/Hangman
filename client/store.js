@@ -3,11 +3,13 @@ import { routerMiddleware } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 import reducer from 'controllers';
 import remoteAction from 'middleware/remote';
+import { createTracker } from 'redux-segment';
 
 export default function setupStore(socket) {
 	let middleware = [
 		remoteAction(socket),
 		routerMiddleware(hashHistory),
+		createTracker(),
 	];
 
 	if (process.env.NODE_ENV !== 'production') {

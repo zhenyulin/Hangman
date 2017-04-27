@@ -6,6 +6,7 @@ dist/
 build/
 test/
 data/
+features/
 
 Dockerfile
 README.md
