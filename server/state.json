@@ -1,1 +1,1 @@
-{"end":false,"wordlist":["Cat","Reindeer","Lion","Elephant"],"played":{},"current":"Dog","complete":false,"life":4,"mask":"***","guessed":["k","l"]}
+{"end":false,"wordlist":["Reindeer","Lion","Elephant"],"played":{"Dog":false},"current":"Cat","complete":false,"life":6,"mask":"***","guessed":[]}
