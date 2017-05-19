@@ -1,0 +1,8 @@
+{
+	"ignore": [
+		"server/state.json",
+		"client/",
+		"*.spec.js",
+		"test/",
+	],
+}

@@ -10,7 +10,7 @@
     "url": "git://github.com/zhenyulin/hangman.git"
   },
   "scripts": {
-    "start": "NODE_PATH=. nodemon server/server.js --exec babel-node --ignore client/  --ignore state.json",
+    "start": "NODE_PATH=. nodemon server/server.js --exec babel-node -c config/nodemon.json",
     "test": "mocha --compilers js:babel-core/register --require ./config/mocha.js server/**/*.spec.js",
     "test:watch": "npm run test -- --watch",
     "coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require ./config/test.js server/**/*.spec.js --report lcovonly",
@@ -99,6 +99,7 @@
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-segment": "^1.6.1",
+    "reselect": "^3.0.0",
     "socket.io": "^1.5.1",
     "socket.io-client": "^1.5.1",
     "styled-components": "^1.0.10"
