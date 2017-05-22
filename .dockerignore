@@ -16,6 +16,7 @@ data/
 Dockerfile
 README.md
 LICENSE
+circle.yml
 .gitignore
 .gitlab-ci.yml
 .DS_Store

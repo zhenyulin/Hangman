@@ -8,7 +8,7 @@ RUN apk --update add git curl bash binutils tar \
 	&& rm -rf /var/cache/apk/* \
 	&& /bin/bash \
 	&& touch ~/.bashrc \
-	&& curl -o- -L https://yarnpkg.com/install.sh | bash \
+	&& curl -s -o- -L https://yarnpkg.com/install.sh | bash \
 	&& apk del git curl tar binutils
 
 # Create user and app directory
@@ -20,13 +20,12 @@ WORKDIR /home/hangman/app
 ADD package.json yarn.lock /home/hangman/app/
 RUN yarn --pure-lockfile \
 	&& chown -R hangman /home/hangman/app \
-	&& yarn cache clean \
-	&& npm cache clean
+	&& yarn cache clean
 
 # Bundle app source and remove src
 ADD . /home/hangman/app/
-RUN npm run build
-RUN rm -rf client server config test
+RUN yarn build \
+	&& rm -rf client server config test
 
 USER hangman
 EXPOSE 3000
