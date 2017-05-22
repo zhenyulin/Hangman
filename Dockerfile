@@ -8,7 +8,7 @@ RUN apk --update add git curl bash binutils tar \
 	&& rm -rf /var/cache/apk/* \
 	&& /bin/bash \
 	&& touch ~/.bashrc \
-	&& curl -s -o- -L https://yarnpkg.com/install.sh | bash \
+	&& curl -o- -L https://yarnpkg.com/install.sh | bash \
 	&& apk del git curl tar binutils
 
 # Create user and app directory
