@@ -29,4 +29,4 @@ RUN yarn build \
 
 USER hangman
 EXPOSE 3000
-ENTRYPOINT npm run serve
+ENTRYPOINT yarn serve
