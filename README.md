@@ -33,6 +33,7 @@ A simple version of Hangman web app, with game status persistent across server a
  * update test framework to Jest, Cumcumber
  * add auth to the boilerplate and support individual status
  * update to latest react-router / react-router-redux
+ * update to webpack2
  * CI configuration update
  * explanation of each dependencies
 
@@ -59,21 +60,23 @@ A simple version of Hangman web app, with game status persistent across server a
  * styled-components
 
 ### Express Server Dependencies
- * morgan
- * nodemon
- * webpack-dev-middleware
- * webpack-hot-middleware
  * body-parser
  * compression
  * cors
  * express
+ * express-validator
+ * favicon
  * helmet
  * jsonwebtoken
  * mongoose
+ * morgan
+ * nodemon
  * passport
  * passport-jwt
  * passport-local
  * socket.io
+ * webpack-dev-middleware
+ * webpack-hot-middleware
 
 ### Linting
  * babel-eslint

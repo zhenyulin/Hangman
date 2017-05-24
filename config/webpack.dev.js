@@ -36,11 +36,6 @@ export default {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.scss$/,
-				include: path.resolve('./client'),
-				loaders: ['style', 'css', 'postcss', 'sass']
-			},
-			{
 				test: /\.json$/,
 				loader: 'json'
 			},
@@ -52,10 +47,5 @@ export default {
 		        ]
 		    },
 		]
-	},
-	postcss: () => [
-		require('postcss-smart-import')({ /* ...options */ }),
-		require('precss')({ /* ...options */ }),
-		require('autoprefixer')({ /* ...options */ })
-	]
+	}
 };
