@@ -39,20 +39,20 @@ export class LetterButtonGroup extends React.PureComponent {
 }
 
 export default styled(LetterButtonGroup)`
-	width: 360px;
+  width: 360px;
 
-	button {
-		height: 30px;
-		border: none;
-		margin: 5px;
-		cursor: pointer;
-		font-size: 13px;
-		width: 30px;
-		background: lightblue;
-	}
+  button {
+    height: 30px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    width: 30px;
+    background: lightblue;
+  }
 
-	button[disabled] {
-		background: grey;
-		color: white;
-	}
+  button[disabled] {
+    background: grey;
+    color: white;
+  }
 `;

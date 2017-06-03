@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "NODE_PATH=. nodemon server/server.js --exec babel-node -c config/nodemon.json",
-    "lint": "eslint --fix  -c config/eslint.js server client config test",
+    "lint": "esw --color -w --changed --fix -c config/eslint.js server client config test",
+    "stylelint": "stylelint client/**/*.js",
     "test": "jest server client",
     "coverage": "npm run test -- --coverage",
     "e2e:setup": "node_modules/selenium-standalone/bin/selenium-standalone install",
@@ -67,6 +68,9 @@
     "redux-devtools-extension": "^2.13.2",
     "selenium-standalone": "^5.8.0",
     "selenium-webdriver": "3.4.0",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-processor-styled-components": "^0.1.0",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.1"
