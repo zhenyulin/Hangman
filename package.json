@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "NODE_PATH=. nodemon server/server.js --exec babel-node -c config/nodemon.json",
-    "lint": "esw --color -w --changed --fix -c config/eslint.js server client config test",
+    "watch": "npm-watch",
+    "lint": "eslint --fix -c config/eslint.js server client config test",
     "stylelint": "stylelint client/**/*.js",
     "test": "jest server client",
     "coverage": "npm run test -- --coverage",
@@ -22,6 +23,11 @@
     "build": "npm run build:server && npm run build:client",
     "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/server.js",
     "serve:fresh": "npm run build && npm run serve"
+  },
+  "watch": {
+    "lint": "server client config test",
+    "stylelint": "client/**/*.js",
+    "test": "client server"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -61,6 +67,7 @@
     "morgan": "^1.8.1",
     "nightwatch": "^0.9.9",
     "nodemon": "^1.11.0",
+    "npm-watch": "^0.1.9",
     "react-addons-perf": "^15.3.2",
     "react-addons-test-utils": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.6",

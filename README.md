@@ -34,6 +34,7 @@ A simple version of Hangman web app, with game status persistent across server a
  * update to webpack2
  * CI configuration update
  * explanation of each dependencies
+ * file watcher update to `chokidar/watchman`
 
 ---
 
