@@ -63,7 +63,7 @@
     "react-addons-test-utils": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-transform-hmr": "^1.0.4",
-    "redux-devtools-extension": "^1.0.0",
+    "redux-devtools-extension": "^2.13.2",
     "sass-loader": "^4.0.2",
     "selenium-standalone": "^5.8.0",
     "selenium-webdriver": "3.4.0",

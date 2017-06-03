@@ -26,11 +26,6 @@ module.exports = {
 				loader: 'babel'
 			},
 			{
-				test: /\.scss$/,
-				include: path.resolve('./client'),
-				loaders: ['style', 'css', 'postcss', 'sass']
-			},
-			{
 				test: /\.json$/,
 				loader: 'json'
 			},
@@ -43,11 +38,6 @@ module.exports = {
 		    }
 		],
 	},
-	postcss: () => [
-		require('postcss-smart-import')({ /* ...options */ }),
-		require('precss')({ /* ...options */ }),
-		require('autoprefixer')({ /* ...options */ })
-	],
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': {
