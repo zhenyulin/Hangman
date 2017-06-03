@@ -1,4 +1,3 @@
-import {expect} from 'chai';
 import {List, Map} from 'immutable';
 import {restart, next, guess} from './core';
 import {MAX_LIFE} from './constant';
@@ -18,7 +17,7 @@ describe('application logic', () => {
 				guessed: List()
 			});
 			const nextState = restart(state);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				end: false,
 				wordlist: List([
 					"Dog",
@@ -47,7 +46,7 @@ describe('application logic', () => {
 				complete: false
 			});
 			const nextState = next(state);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				end: true,
 				wordlist: List(),
 				played: Map({
@@ -70,7 +69,7 @@ describe('application logic', () => {
 				guessed: List()
 			});
 			const nextState = next(state);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				end: false,
 				wordlist: List(['Elephant']),
 				played: Map(),
@@ -94,7 +93,7 @@ describe('application logic', () => {
 				guessed: List(['c', 'a', 'k', 't'])
 			});
 			const nextState = next(state);
-			expect(nextState).to.deep.equal(Map({
+			expect(nextState).toEqual(Map({
 				end: false,
 				wordlist: List(['Elephant']),
 				played: Map({
@@ -120,7 +119,7 @@ describe('application logic', () => {
 				guessed: List(['c', 'v', 'k', 't','b','e'])
 			});
 			const nextState = next(state);
-			expect(nextState).to.deep.equal(Map({
+			expect(nextState).toEqual(Map({
 				end: false,
 				wordlist: List(['Elephant']),
 				played: Map({
@@ -146,7 +145,7 @@ describe('application logic', () => {
 			});
 			const letter = 'e';
 			const nextState = guess(state, letter);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				current: 'Elephant',
 				mask: 'E*e*****',
 				life: 6,
@@ -165,11 +164,11 @@ describe('application logic', () => {
 			});
 			const letter = 'd';
 			const nextState = guess(state, letter);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				current: 'Dog',
 				mask: 'D**',
-				guessed: List(['d']),
 				life: 6,
+				guessed: List(['d']),
 				complete: false
 			}));
 		});
@@ -183,7 +182,7 @@ describe('application logic', () => {
 			});
 			const letter = 'k';
 			const nextState = guess(state, letter);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				current: 'Elephant',
 				mask: '********',
 				guessed: List(['k']),
@@ -201,7 +200,7 @@ describe('application logic', () => {
 			});
 			const letter = 'a';
 			const nextState = guess(state, letter);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				complete: true,
 				current: 'Cat',
 				mask: 'Cat',
@@ -221,7 +220,7 @@ describe('application logic', () => {
 			});
 			const letter = 'm';
 			const nextState = guess(state, letter);
-			expect(nextState).to.equal(Map({
+			expect(nextState).toEqual(Map({
 				complete: false,
 				current: 'Cat',
 				mask: '***',

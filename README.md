@@ -7,7 +7,6 @@ A simple version of Hangman web app, with game status persistent across server a
  * Use Redux, Immutable as isomorphic state management on both client and server
  * Use Socket.io to streamline client/server data communication
  * CI/CD `GitHub -> CircleCI -> Docker Image -> Private Docker Host`
- * Database such as Mongo can be connected to store state data
 
 ## Serve
 
@@ -27,10 +26,9 @@ A simple version of Hangman web app, with game status persistent across server a
  * visit [Demo](http://elitir.com:3456/)
 
 ## TODO
- * integrate Reselect
- * use RxJS / Redux-saga wherever practical
+ * integrate Reselect, RxJS / Redux-saga
  * Update Segment Tracking to show game passing rate
- * update test framework to Jest, Cumcumber
+ * update e2e test framework to Cumcumber
  * add auth to the boilerplate and support individual status
  * update to latest react-router / react-router-redux
  * update to webpack2
