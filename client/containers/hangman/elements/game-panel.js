@@ -13,16 +13,16 @@ export class GamePanel extends React.PureComponent {
   };
 
   render() {
-  	const {className, life, mask, complete, guessed} = this.props;
-  	const {guess} = this.props;
+  	const { className, life, mask, complete, guessed } = this.props;
+  	const { guess } = this.props;
     return (
-		<div className={className}>
-			<div className='life'>Life: {life}</div>
-			<div>Animal Name: {mask}</div>
-			{complete || life === 0 ? null : <LetterButtonGroup guess={guess} guessed={guessed} />}
-			{complete ? <div>You have got the right word!</div> : null}
-			{life === 0 ? <div>Sorry, you didn't get it this time.</div> : null}
-		</div>
+      <div className={className}>
+        <div className="life">Life: {life}</div>
+        <div>Animal Name: {mask}</div>
+        {complete || life === 0 ? null : <LetterButtonGroup guess={guess} guessed={guessed} />}
+        {complete ? <div>You have got the right word!</div> : null}
+        {life === 0 ? <div>Sorry, you didn't get it this time.</div> : null}
+      </div>
     );
   }
 }

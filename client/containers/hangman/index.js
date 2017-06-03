@@ -8,43 +8,50 @@ import GamePanel from './elements/game-panel';
 import BasicButton from 'components/basic-button';
 
 export class Hangman extends React.PureComponent {
-	render() {
-		const {className, end, complete, life, guessed, mask} = this.props;
-		const {guess, next, restart, navigate} = this.props;
-		return (
-			<div className={className}>
-				{end ? <div>You have played all games.</div> :
-					<GamePanel
-						life={life}
-						complete={complete}
-						mask={mask}
-						guessed={guessed}
-						guess={guess}
-					/>
+  render() {
+    const { className, end, complete, life, guessed, mask } = this.props;
+    const { guess, next, restart, navigate } = this.props;
+    return (
+      <div className={className}>
+        {end ? <div>You have played all games.</div> :
+        <GamePanel {...{ life, complete, mask, guessed, guess }} />
 				}
-				<div className='navigation'>
-					<BasicButton className='statusButton' func={() => navigate('/management')} text='Game Summary' />
-					<BasicButton className='nextButton' disabled={end} func={next} text='Next Word' />
-					<BasicButton className='restartButton' func={restart} text='Restart Game' />
-				</div>
-			</div>
-		);
-	}
+        <div className="navigation">
+          <BasicButton
+            className="statusButton"
+            func={() => navigate('/management')}
+            text="Game Summary"
+          />
+          <BasicButton
+            className="nextButton"
+            disabled={end}
+            func={next}
+            text="Next Word"
+          />
+          <BasicButton
+            className="restartButton"
+            func={restart}
+            text="Restart Game"
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-	end: state.hangman.get('end'),
-	complete: state.hangman.get('complete'),
-	life: state.hangman.get('life'),
-	guessed: state.hangman.get('guessed'),
-	mask: state.hangman.get('mask'),
+  end: state.hangman.get('end'),
+  complete: state.hangman.get('complete'),
+  life: state.hangman.get('life'),
+  guessed: state.hangman.get('guessed'),
+  mask: state.hangman.get('mask'),
 });
 
 const mapDispatchToProps = dispatch => ({
-	guess: letter => dispatch(Controllers.guess(letter)),
-	next: () => dispatch(Controllers.next()),
-	restart: () => dispatch(Controllers.restart()),
-	navigate: location => dispatch(push(location)),
+  guess: letter => dispatch(Controllers.guess(letter)),
+  next: () => dispatch(Controllers.next()),
+  restart: () => dispatch(Controllers.restart()),
+  navigate: location => dispatch(push(location)),
 });
 
 const component = styled(Hangman)`

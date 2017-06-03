@@ -1,5 +1,5 @@
 describe('index handler', () => {
-	it('should do what...', () => {
-		//TODO
-	});
+  it('should do what...', () => {
+		// TODO
+  });
 });

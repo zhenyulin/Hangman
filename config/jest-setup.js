@@ -5,6 +5,6 @@ global.render = render;
 global.mount = mount;
 
 // Fail tests on any warning
-console.error = message => {
-   throw new Error(message);
+console.error = (message) => {
+  throw new Error(message);
 };

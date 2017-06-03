@@ -23,25 +23,24 @@ const store = setupStore();
 const db = connectDB();
 
 if (process.env.NODE_ENV !== 'production') {
-	const webpack = require('webpack');
-	const webpackDevMiddleware = require('webpack-dev-middleware');
-	const webpackHotMiddleware = require('webpack-hot-middleware');
-	const webpackConfig = require('config/webpack.dev');
-	const compiler = webpack(webpackConfig);
-	app.use(webpackHotMiddleware(compiler));
-	app.use(webpackDevMiddleware(compiler, {
-		noInfo: true,
-		publicPath: webpackConfig.output.publicPath
-	}));
-	const morgan = require('morgan');
-	app.use(morgan('dev'));
-}
-else {
-	const helmet = require('helmet');
-	app.use(helmet());
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  const webpackConfig = require('config/webpack.dev');
+  const compiler = webpack(webpackConfig);
+  app.use(webpackHotMiddleware(compiler));
+  app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath,
+  }));
+  const morgan = require('morgan');
+  app.use(morgan('dev'));
+} else {
+  const helmet = require('helmet');
+  app.use(helmet());
 }
 
-configIO(io, store, app);
+configIO(io, store);
 
 app.use(cors());
 app.use(compression());
