@@ -1,0 +1,4 @@
+eslint:
+  enabled: true
+  config_file: config/eslint.js
+  ignore_file: .eslintignore
