@@ -1,4 +1,4 @@
-# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/hangman)
+# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/hangman) [![Code Climate](https://codeclimate.com/github/zhenyulin/hangman/badges/gpa.svg)](https://codeclimate.com/github/zhenyulin/hangman)
 
 A simple version of Hangman web app, with game status persistent across server and browser restart
 
