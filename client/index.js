@@ -13,12 +13,12 @@ const socket = io.connect();
 const store = setupStore(socket);
 const history = syncHistoryWithStore(browserHistory, store);
 
-//TODO: put socket setup in a seperate module
+// TODO: put socket setup in a seperate module
 socket.on('state', state => store.dispatch(HangmanController.setState(state)));
 
 ReactDOM.render(
-	<Provider store={store} >
-		<Router history={history} routes={routes} />
-	</Provider>,
-	document.getElementById('app')
+  <Provider store={store} >
+    <Router history={history} routes={routes} />
+  </Provider>,
+	document.getElementById('app'),
 );

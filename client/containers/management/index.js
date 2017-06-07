@@ -1,48 +1,50 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { push } from 'react-router-redux';
 
 import BasicButton from 'components/basic-button';
 
 export class Management extends React.PureComponent {
-	static propTypes = {
-		played: React.PropTypes.object,
-	};
+  static propTypes = {
+    played: React.PropTypes.object,
+  };
 
-	//TODO: clean up the workaround
-	static defaultProps = {
-		played: {
-			size: 0,
-		},
-	};
+	// TODO: clean up the workaround
+  static defaultProps = {
+    played: {
+      size: 0,
+    },
+  };
 
-	render() {
-		const { className, played } = this.props;
-		const { navigate } = this.props;
-		return (
-			<div className={className}>
-				<div className='summary'>
-					{played.size ? Object.keys(played.toJS()).map(item => {
-						return (
-							<div key={item}>{item} : {played[item] ? 'success': 'fail'}</div>
-						);
-					}) : 'No word has been played'}
-				</div>
-				<div className='navigation'>
-					<BasicButton className='statusButton' func={() => navigate('/')} text='Back to Game' />
-				</div>
-			</div>
-		);
-	}
+  render() {
+    const { className, played } = this.props;
+    const { navigate } = this.props;
+    return (
+      <div className={className}>
+        <div className="summary">
+          {played.size ? Object.keys(played.toJS()).map(item => (
+            <div key={item}>{item} : {played[item] ? 'success' : 'fail'}</div>
+						)) : 'No word has been played'}
+        </div>
+        <div className="navigation">
+          <BasicButton
+            className="statusButton"
+            func={() => navigate('/')}
+            text="Back to Game"
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-	played: state.hangman.get('played'),
+  played: state.hangman.get('played'),
 });
 
 const mapDispatchToProps = dispatch => ({
-	navigate: location => dispatch(push(location)),
+  navigate: location => dispatch(push(location)),
 });
 
 const component = styled(Management)`
