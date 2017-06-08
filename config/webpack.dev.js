@@ -6,7 +6,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 export default {
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   resolve: {
     modules: [
       path.resolve('./client'),
@@ -19,8 +19,7 @@ export default {
   },
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000/',
-    'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client',
     path.resolve('./client/index.js'),
   ],
   output: {
@@ -29,13 +28,13 @@ export default {
     publicPath: '/',
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HTMLWebpackPlugin({
       filename: 'index.html',
       template: './client/index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
   ],
   module: {
     rules: [
