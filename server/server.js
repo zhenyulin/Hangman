@@ -31,7 +31,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
-    historyApiFallback: true,
   }));
   app.use(webpackHotMiddleware(compiler));
   const morgan = require('morgan');

@@ -7,13 +7,12 @@
     "react-hot-loader/babel"
   ],
   "presets": [
-    "latest",
     [
-      "es2015",
-      {
+      "env", {
         "modules": false
       }
     ],
+    "latest",
     "react",
     "flow",
   ],

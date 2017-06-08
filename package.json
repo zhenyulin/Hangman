@@ -71,7 +71,7 @@
     "npm-watch": "^0.1.9",
     "react-addons-perf": "^15.3.2",
     "react-addons-test-utils": "^15.4.1",
-    "react-hot-loader": "next",
+    "react-hot-loader": "3.0.0-beta.6",
     "redux-devtools-extension": "^2.13.2",
     "selenium-standalone": "^5.8.0",
     "selenium-webdriver": "3.4.0",
@@ -85,6 +85,7 @@
     "webpack-module-hot-accept": "^1.0.5"
   },
   "dependencies": {
+    "babel-preset-env": "^1.5.2",
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "cors": "^2.8.3",
