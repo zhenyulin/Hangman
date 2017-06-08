@@ -24,15 +24,16 @@ const db = connectDB();
 
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
-  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackDevMiddleware = require('webpack-dev-middleware-webpack-2');
   const webpackHotMiddleware = require('webpack-hot-middleware');
   const webpackConfig = require('config/webpack.dev');
   const compiler = webpack(webpackConfig);
-  app.use(webpackHotMiddleware(compiler));
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
+    historyApiFallback: true,
   }));
+  app.use(webpackHotMiddleware(compiler));
   const morgan = require('morgan');
   app.use(morgan('dev'));
 } else {

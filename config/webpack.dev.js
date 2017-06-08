@@ -1,12 +1,25 @@
-import webpack from 'webpack';
 import path from 'path';
+
+import webpack from 'webpack';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 export default {
   devtool: 'eval-source-map',
+  resolve: {
+    modules: [
+      path.resolve('./client'),
+      'node_modules',
+    ],
+    extensions: ['.js', '.jsx'],
+    alias: {
+      request: 'browser-request',
+    },
+  },
   entry: [
-    'webpack-hot-middleware/client',
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000/',
     'webpack/hot/only-dev-server',
     path.resolve('./client/index.js'),
   ],
@@ -16,36 +29,33 @@ export default {
     publicPath: '/',
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new HTMLWebpackPlugin({
+      filename: 'index.html',
+      template: './client/index.html',
+    }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
-  resolve: {
-    root: path.resolve('./client'),
-    extensions: ['', '.js', '.jsx'],
-    alias: {
-      request: 'browser-request',
-    },
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        use: ['babel-loader'],
         include: path.resolve('./client'),
         exclude: /node_modules/,
       },
       {
-        test: /\.json$/,
-        loader: 'json',
+        test: /\.(png|jpg|jpeg|gif|woff|woff2|svg|eot|ttf|otf|wav|mp3)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]_[hash:base64:5].[ext]',
+            },
+          },
+        ],
       },
-      {
-		        test: /\.(jpe?g|png|gif|svg)$/i,
-		        loaders: [
-		            'file?hash=sha512&digest=hex&name=[hash].[ext]',
-		            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-		        ],
-		    },
     ],
   },
 };

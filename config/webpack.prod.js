@@ -12,30 +12,33 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    root: path.resolve('./client'),
-    extensions: ['', '.js', '.jsx'],
+    modules: [
+      path.resolve('./client'),
+    ],
+    extensions: ['.js', '.jsx'],
     alias: {
       request: 'browser-request',
     },
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js?$/,
+        test: /\.js$/,
+        use: ['babel-loader'],
+        include: path.resolve('./client'),
         exclude: /node_modules/,
-        loader: 'babel',
       },
       {
-        test: /\.json$/,
-        loader: 'json',
+        test: /\.(png|jpg|jpeg|gif|woff|woff2|svg|eot|ttf|otf|wav|mp3)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]_[hash:base64:5].[ext]',
+            },
+          },
+        ],
       },
-      {
-		        test: /\.(jpe?g|png|gif|svg)$/i,
-		        loaders: [
-		            'file?hash=sha512&digest=hex&name=[hash].[ext]',
-		            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-		        ],
-		    },
     ],
   },
   plugins: [
@@ -45,6 +48,7 @@ module.exports = {
       },
     }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       minimize: true,
       compress: {
         warnings: false,
