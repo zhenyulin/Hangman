@@ -1,11 +1,11 @@
 machine:
   node:
-    version: 8.0.0
+    version: stable
+test:
+  post:
+    - bash <(curl -s https://codecov.io/bash)
 deployment:
   dockerhub:
     branch: master
     commands:
       - $TRIGGER_DOCKER_HUB_BUILD
-test:
-  post:
-    - bash <(curl -s https://codecov.io/bash)
