@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
@@ -14,6 +15,7 @@ module.exports = {
   resolve: {
     modules: [
       path.resolve('./client'),
+      'node_modules',
     ],
     extensions: ['.js', '.jsx'],
     alias: {
@@ -25,7 +27,6 @@ module.exports = {
       {
         test: /\.js$/,
         use: ['babel-loader'],
-        include: path.resolve('./client'),
         exclude: /node_modules/,
       },
       {
@@ -53,6 +54,10 @@ module.exports = {
       compress: {
         warnings: false,
       },
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'index.html',
+      template: './client/index.html',
     }),
   ],
 };

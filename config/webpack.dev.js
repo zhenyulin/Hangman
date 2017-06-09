@@ -7,16 +7,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 export default {
   devtool: 'inline-source-map',
-  resolve: {
-    modules: [
-      path.resolve('./client'),
-      'node_modules',
-    ],
-    extensions: ['.js', '.jsx'],
-    alias: {
-      request: 'browser-request',
-    },
-  },
   entry: [
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
@@ -26,6 +16,17 @@ export default {
     path: path.resolve('./client/'),
     filename: 'bundle.js',
     publicPath: '/',
+  },
+  resolve: {
+    modules: [
+    // NOTE: new resolve pathes need to be above node_modules
+      path.resolve('./client'),
+      'node_modules',
+    ],
+    extensions: ['.js', '.jsx'],
+    alias: {
+      request: 'browser-request',
+    },
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
