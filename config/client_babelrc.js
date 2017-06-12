@@ -41,5 +41,6 @@ module.exports = {
     'transform-object-rest-spread',
     'transform-class-properties',
     'transform-html-import-to-string',
+    'react-hot-loader/babel',
   ],
 };

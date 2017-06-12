@@ -12,8 +12,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 module.exports = {
   devtool: 'inline-source-map',
   entry: [
-    'react-hot-loader/patch',
     'webpack-hot-middleware/client',
+    'react-hot-loader/patch',
     path.resolve('./client/index.js'),
   ],
   output: {
