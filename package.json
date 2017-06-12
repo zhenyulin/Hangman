@@ -10,7 +10,7 @@
     "url": "git://github.com/zhenyulin/hangman.git"
   },
   "scripts": {
-    "start": "NODE_PATH=. nodemon server/server.js --exec babel-node -c config/nodemon.json",
+    "start": "nodemon --config config/nodemon.json server/server.js",
     "watch": "npm-watch",
     "lint": "eslint server client config test --fix",
     "lint:watch": "esw server client config test --watch --changed --clear --fix",

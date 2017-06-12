@@ -1,8 +1,18 @@
 {
-	"ignore": [
-		"server/state.json",
-		"client/",
-		"*.spec.js",
-		"test/",
-	],
+  "restartable": "rs",
+  "ignore": [
+    "*.spec.js",
+    "server/state.json"
+  ],
+  "execMap": {
+    "js": "babel-node"
+  },
+  "watch": [
+    "server/"
+  ],
+  "env": {
+    "NODE_PATH": ".",
+    "NODE_ENV": "development"
+  },
+  "ext": "js json"
 }
