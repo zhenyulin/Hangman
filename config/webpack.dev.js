@@ -1,13 +1,15 @@
-import path from 'path';
+'use strict';
 
-import webpack from 'webpack';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
 
-import clientBabelrc from './client_babelrc';
+const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+
+const clientBabelrc = require('./client_babelrc');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-export default {
+module.exports = {
   devtool: 'inline-source-map',
   entry: [
     'react-hot-loader/patch',

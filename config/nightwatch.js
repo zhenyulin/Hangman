@@ -1,4 +1,8 @@
-require('babel-core/register');
+'use strict';
+
+/**
+ */
+require('babel-register');
 
 module.exports = {
   src_folders: ['test'],

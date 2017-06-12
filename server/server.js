@@ -29,7 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware-webpack-2');
   const webpackHotMiddleware = require('webpack-hot-middleware');
-  const webpackConfig = require('config/webpack.dev').default;
+  const webpackConfig = require('config/webpack.dev');
   const compiler = webpack(webpackConfig);
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
