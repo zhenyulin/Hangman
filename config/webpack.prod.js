@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
+const clientBabelrc = require('./client_babelrc');
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 module.exports = {
@@ -26,7 +28,15 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: Object.assign({}, {
+              cacheDirectory: true,
+              babelrc: false,
+            }, clientBabelrc),
+          },
+        ],
         exclude: /node_modules/,
       },
       {

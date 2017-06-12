@@ -3,6 +3,8 @@ import path from 'path';
 import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 
+import clientBabelrc from './client_babelrc';
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 export default {
@@ -19,7 +21,7 @@ export default {
   },
   resolve: {
     modules: [
-    // NOTE: new resolve pathes need to be above node_modules
+      // NOTE: new resolve pathes need to be above node_modules
       path.resolve('./client'),
       'node_modules',
     ],
@@ -41,8 +43,15 @@ export default {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'],
-        include: path.resolve('./client'),
+        use: [
+          {
+            loader: 'babel-loader',
+            options: Object.assign({}, {
+              cacheDirectory: true,
+              babelrc: false,
+            }, clientBabelrc),
+          },
+        ],
         exclude: /node_modules/,
       },
       {
