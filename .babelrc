@@ -1,19 +1,19 @@
 {
-  "plugins": [
-    "transform-class-properties",
-    "transform-runtime",
-    "add-module-exports",
-    "transform-html-import-to-string",
-    "react-hot-loader/babel"
-  ],
   "presets": [
     [
-      "env", {
-        "modules": false
+      "env",
+      {
+        "targets": {
+          "node": "6.10"
+        },
+        "useBuiltIns": true
       }
-    ],
-    "latest",
-    "react",
-    "flow",
+    ]
   ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "add-module-exports",
+    "transform-html-import-to-string"
+  ]
 }
