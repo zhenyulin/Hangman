@@ -9,7 +9,13 @@ const clientBabelrc = require('./client_babelrc');
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 module.exports = {
-  devtool: 'eval-cheap-module-source-map',
+  /**
+   * Should use full source maps for production
+   * https://github.com/facebookincubator/create-react-app/blob/f6d85440335ba61c828cfb30259b2ecb91c3da2d/packages/react-scripts/config/webpack.config.prod.js#L63-L65
+   *
+   * devtool: 'eval-cheap-module-source-map',
+   */
+  devtool: 'source-map',
   entry: path.resolve('./client/index.js'),
   output: {
     path: path.resolve('./dist/client/'),

@@ -10,7 +10,13 @@ const clientBabelrc = require('./client_babelrc');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  devtool: 'inline-source-map',
+  /**
+   * use cheap-module-source-map in development
+   * https://github.com/facebookincubator/create-react-app/blob/c78c1fae6282d4eb0ba6b844e91e49097c0073ea/packages/react-scripts/config/webpack.config.dev.js#L39-L41
+   *
+   * devtool: 'inline-source-map',
+   */
+  devtool: 'cheap-module-source-map',
   entry: [
     'webpack-hot-middleware/client',
     'react-hot-loader/patch',
