@@ -33,14 +33,13 @@ module.exports = {
            */
           uglify: true,
         },
-        // modules: false,
+        modules: false,
         useBuiltIns: true,
       },
     ],
     'react',
   ],
   plugins: [
-    'add-module-exports',
     'transform-object-rest-spread',
     'transform-class-properties',
     'transform-html-import-to-string',
