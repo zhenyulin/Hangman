@@ -3,10 +3,12 @@
 /coverage
 /reports
 docker_compose/
-buid/
+/build/
 
 npm-debug.log
 .babel.json
 .v8flags.5.4.500.36.undefined.json
 .DS_Store
 .config
+.idea
+.vscode
