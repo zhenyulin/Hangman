@@ -2,7 +2,6 @@
   "setupFiles": [
     "./jest-setup.js"
   ],
-  //resolve test file import path
   "modulePaths": [
     "client",
     "server"
