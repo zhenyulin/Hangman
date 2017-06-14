@@ -1,6 +1,7 @@
 {
   "watch": [
-    "server/"
+    "server",
+    "config"
   ],
   "ignore": [
     "*.spec.js",

@@ -1,16 +1,12 @@
 {
+  "presets": [
+    "latest",
+    "react"
+  ],
   "plugins": [
     "transform-html-import-to-string",
     "transform-object-rest-spread",
     "transform-class-properties",
     "react-hot-loader/babel"
-  ],
-  "presets": [
-    ["env", {
-      modules: false,
-      useBuiltIns: true
-    }],
-    "react",
-    "flow",
-  ],
+  ]
 }
