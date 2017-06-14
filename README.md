@@ -1,4 +1,4 @@
-# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/hangman)
+# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/hangman) [![Code Climate](https://codeclimate.com/github/zhenyulin/hangman/badges/gpa.svg)](https://codeclimate.com/github/zhenyulin/hangman) [![CLA assistant check](https://cla-assistant.io/pull/badge/signed)](https://cla-assistant.io/zhenyulin/hangman?pullRequest=1) 
 
 A simple version of Hangman web app, with game status persistent across server and browser restart
 
@@ -7,7 +7,6 @@ A simple version of Hangman web app, with game status persistent across server a
  * Use Redux, Immutable as isomorphic state management on both client and server
  * Use Socket.io to streamline client/server data communication
  * CI/CD `GitHub -> CircleCI -> Docker Image -> Private Docker Host`
- * Database such as Mongo can be connected to store state data
 
 ## Serve
 
@@ -27,14 +26,15 @@ A simple version of Hangman web app, with game status persistent across server a
  * visit [Demo](http://elitir.com:3456/)
 
 ## TODO
- * integrate Reselect
- * use RxJS / Redux-saga wherever practical
+ * integrate Reselect, RxJS / Redux-saga
  * Update Segment Tracking to show game passing rate
- * update test framework to Jest, Cumcumber
+ * update e2e test framework to Cumcumber
  * add auth to the boilerplate and support individual status
  * update to latest react-router / react-router-redux
+ * update to webpack2
  * CI configuration update
  * explanation of each dependencies
+ * file watcher update to `chokidar/watchman`
 
 ---
 
@@ -59,21 +59,23 @@ A simple version of Hangman web app, with game status persistent across server a
  * styled-components
 
 ### Express Server Dependencies
- * morgan
- * nodemon
- * webpack-dev-middleware
- * webpack-hot-middleware
  * body-parser
  * compression
  * cors
  * express
+ * express-validator
+ * favicon
  * helmet
  * jsonwebtoken
  * mongoose
+ * morgan
+ * nodemon
  * passport
  * passport-jwt
  * passport-local
  * socket.io
+ * webpack-dev-middleware
+ * webpack-hot-middleware
 
 ### Linting
  * babel-eslint

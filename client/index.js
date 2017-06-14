@@ -1,24 +1,23 @@
-import io from 'socket.io-client';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import setupStore from 'store';
-import routes from './routes';
+import { AppContainer } from 'react-hot-loader';
 
-import { Actions as HangmanController } from 'controllers/hangman';
+import App from './App';
 
-const socket = io.connect();
-const store = setupStore(socket);
-const history = syncHistoryWithStore(browserHistory, store);
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app'),
+  );
+};
 
-//TODO: put socket setup in a seperate module
-socket.on('state', state => store.dispatch(HangmanController.setState(state)));
+render(App);
 
-ReactDOM.render(
-	<Provider store={store} >
-		<Router history={history} routes={routes} />
-	</Provider>,
-	document.getElementById('app')
-);
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const HotApp = require('./App').default;
+    render(HotApp);
+  });
+}

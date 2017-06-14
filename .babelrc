@@ -1,13 +1,17 @@
 {
-  "plugins": [
-    "transform-class-properties",
-    "transform-runtime",
-    "add-module-exports",
-    "transform-html-import-to-string",
-    "react-hot-loader/babel"
-  ],
   "presets": [
     "latest",
     "react"
+  ],
+  "plugins": [
+    "transform-html-import-to-string",
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "react-hot-loader/babel",
+    ["module-resolver", {
+      "alias": {
+       "server": "./server"
+      }
+    }]
   ]
 }
