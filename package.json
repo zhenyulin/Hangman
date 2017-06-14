@@ -30,18 +30,6 @@
     "stylelint": "client/**/*.js",
     "test": "client server"
   },
-  "jest": {
-    "setupFiles": [
-      "./config/jest-setup.js"
-    ],
-    "modulePaths": [
-      "client",
-      "server"
-    ],
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
-    ]
-  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
