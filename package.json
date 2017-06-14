@@ -31,13 +31,13 @@
     "test": "client server"
   },
   "jest": {
-      "modulePaths": [
-          "client",
-          "server"
-      ],
-      "snapshotSerializers": [
-          "<rootDir>/node_modules/enzyme-to-json/serializer"
-      ]
+    "modulePaths": [
+      "client",
+      "server"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
