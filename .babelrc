@@ -10,7 +10,8 @@
     "react-hot-loader/babel",
     ["module-resolver", {
       "alias": {
-       "server": "./server"
+       "server": "./server",
+       "config": "./config"
       }
     }]
   ]
