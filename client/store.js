@@ -1,15 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-import { browserHistory } from 'react-router';
 import reducer from 'controllers';
 import remoteAction from 'middleware/remote';
 import { createTracker } from 'redux-segment';
 
-export default function setupStore(socket) {
+export default function setupStore(socket, history) {
   const middleware = [
     remoteAction(socket),
+    routerMiddleware(history),
     createTracker(),
-    routerMiddleware(browserHistory),
   ];
 
   if (process.env.NODE_ENV !== 'production') {
