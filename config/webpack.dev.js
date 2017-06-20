@@ -19,14 +19,10 @@ module.exports = {
   },
   resolve: {
     modules: [
-    // NOTE: new resolve pathes need to be above node_modules
-      path.resolve('./client'),
       'node_modules',
+      path.resolve('./client'),
     ],
     extensions: ['.js', '.jsx'],
-    alias: {
-      request: 'browser-request',
-    },
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
