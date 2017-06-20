@@ -16,7 +16,7 @@
     "lint:watch": "esw server client config test --watch --changed --clear --fix",
     "stylelint": "stylelint client/**/*.js",
     "test": "jest server client",
-    "coverage": "npm run test -- --coverage",
+    "cover": "npm run test -- --coverage",
     "e2e:setup": "node_modules/selenium-standalone/bin/selenium-standalone install",
     "e2e": "node_modules/.bin/nightwatch --config config/nightwatch.js",
     "build:server": "babel server -d dist/server --copy-files --ignore server/**/*.spec.js",
