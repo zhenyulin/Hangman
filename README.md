@@ -1,4 +1,4 @@
-# Hangman [![CircleCI](https://circleci.com/gh/zhenyulin/hangman.svg?style=svg)](https://circleci.com/gh/zhenyulin/hangman) [![Code Climate](https://codeclimate.com/github/zhenyulin/hangman/badges/gpa.svg)](https://codeclimate.com/github/zhenyulin/hangman) [![CLA assistant check](https://cla-assistant.io/pull/badge/signed)](https://cla-assistant.io/zhenyulin/hangman?pullRequest=1) 
+# Hangman [![Code Climate](https://codeclimate.com/github/zhenyulin/hangman/badges/gpa.svg)](https://codeclimate.com/github/zhenyulin/hangman) [![CircleCI](https://circleci.com/gh/zhenyulin/hangman.svg?style=shield)](https://circleci.com/gh/zhenyulin/hangman) [![Build Status](https://travis-ci.org/zhenyulin/rainbow.svg?branch=master)](https://travis-ci.org/zhenyulin/rainbow) [![Coverage Status](https://coveralls.io/repos/github/zhenyulin/rainbow/badge.svg?branch=master)](https://coveralls.io/github/zhenyulin/rainbow?branch=master) [![CLA assistant check](https://cla-assistant.io/pull/badge/signed)](https://cla-assistant.io/zhenyulin/hangman?pullRequest=1)
 
 A simple version of Hangman web app, with game status persistent across server and browser restart
 
