@@ -5,7 +5,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 module.exports = {
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
   entry: path.resolve('./client/index.js'),
   output: {
     path: path.resolve('./dist/client/'),

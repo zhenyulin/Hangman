@@ -31,10 +31,11 @@ A simple version of Hangman web app, with game status persistent across server a
  * update e2e test framework to Cumcumber
  * add auth to the boilerplate and support individual status
  * update to latest react-router / react-router-redux
- * update to webpack2
- * CI configuration update
+ * CI configuration update to travis
  * explanation of each dependencies
  * file watcher update to `chokidar/watchman`
+ * eslint resolver
+ * babel resolver and production
 
 ---
 
@@ -80,17 +81,11 @@ A simple version of Hangman web app, with game status persistent across server a
 ### Linting
  * babel-eslint
  * eslint
- * eslint-plugin-mocha
  * eslint-plugin-react
 
 ### Unit Test
- * chai
- * chai-immutable
+ * jest
  * enzyme
- * istanbul
- * jsdom
- * mocha
- * sinon
 
 ### E2E Test
  * nightwatch
@@ -99,33 +94,21 @@ A simple version of Hangman web app, with game status persistent across server a
 ### Babel Dependencies
  * babel-cli
  * babel-core
- * babel-plugin-add-module-exports
  * babel-plugin-react-transform
  * babel-plugin-syntax-decorators
  * babel-plugin-transform-class-properties
  * babel-plugin-transform-html-import-to-string
- * babel-plugin-transform-runtime
  * babel-polyfill
  * babel-preset-latest
  * babel-preset-react
- * babel-preset-react-hmre
  * babel-register
- * babel-runtime
 
 
 ### Webpack Dependencies
  * autoprefixer
  * babel-loader
- * css-loader
  * extract-text-webpack-plugin
  * file-loader
  * ignore-styles
  * image-webpack-loader
- * json-loader
- * node-sass
- * postcss-loader
- * postcss-smart-import
- * precss
- * sass-loader
- * style-loader
  * webpack
