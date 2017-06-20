@@ -1,9 +1,6 @@
 machine:
   node:
     version: stable
-test:
-  post:
-    - bash <(curl -s https://codecov.io/bash)
 deployment:
   dockerhub:
     branch: master
