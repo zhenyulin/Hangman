@@ -1,20 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import LetterButtonGroup from 'components/letter-button-group';
 
 export class GamePanel extends React.PureComponent {
   static propTypes = {
-    life: React.PropTypes.number,
-    mask: React.PropTypes.string,
-    complete: React.PropTypes.bool,
-    guessed: React.PropTypes.object,
-    guess: React.PropTypes.func,
+    className: PropTypes.string,
+    life: PropTypes.number,
+    mask: PropTypes.string,
+    complete: PropTypes.bool,
+    guessed: PropTypes.object,
+    guess: PropTypes.func,
   };
 
   render() {
-  	const { className, life, mask, complete, guessed } = this.props;
-  	const { guess } = this.props;
+    const { className, life, mask, complete, guessed } = this.props;
+    const { guess } = this.props;
     return (
       <div className={className}>
         <div className="life">Life: {life}</div>
@@ -28,7 +30,7 @@ export class GamePanel extends React.PureComponent {
 }
 
 export default styled(GamePanel)`
-	.life {
-		float: right;
-	}
+  .life {
+    float: right;
+  }
 `;
