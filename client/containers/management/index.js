@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { push } from 'react-router-redux';
@@ -7,7 +8,7 @@ import BasicButton from 'components/basic-button';
 
 export class Management extends React.PureComponent {
   static propTypes = {
-    played: React.PropTypes.object,
+    played: PropTypes.object,
   };
 
 	// TODO: clean up the workaround

@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export class FunctionButton extends React.PureComponent {
   static propTypes = {
-    func: React.PropTypes.func,
-    text: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
+    className: PropTypes.string,
+    func: PropTypes.func,
+    text: PropTypes.string,
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {

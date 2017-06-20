@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export class LetterButtonGroup extends React.PureComponent {
   static propTypes = {
-    guess: React.PropTypes.func,
-    guessed: React.PropTypes.object,
+    className: PropTypes.string,
+    guess: PropTypes.func,
+    guessed: PropTypes.array,
   };
 
   static defaultProps = {
