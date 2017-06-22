@@ -39,10 +39,8 @@ export function guess(state, letter) {
   if (word.toLowerCase().indexOf(letter.toLowerCase()) > -1) {
     const mask = state.get('mask');
     let nextMask = '';
-    for (let i = 0; i < mask.length; i++) {
-      word[i].toLowerCase() === letter ?
-			nextMask += word[i] :
-			nextMask += mask[i];
+    for (let i = 0; i < mask.length; i += 1) {
+      nextMask += word[i].toLowerCase() === letter ? word[i] : mask[i];
     }
     return state.merge({
       mask: nextMask,
@@ -55,7 +53,6 @@ export function guess(state, letter) {
 
   if (life === 1) {
     const played = state.get('played');
-    const word = state.get('current');
     const complete = state.get('complete');
     return state.merge({
       guessed: guessed.push(letter),
