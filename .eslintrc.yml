@@ -28,6 +28,5 @@ rules:
   react/require-default-props: 'off'
 settings:
   import/resolver:
-    node:
-      moduleDirectory: [./server, ./config]
+    node: {moduleDirectory: .}
     webpack: {config: ./config/webpack.prod.js}

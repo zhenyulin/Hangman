@@ -13,7 +13,7 @@
     "start": "nodemon server/server.js --config config/nodemon.json",
     "watch": "npm-watch",
     "lint": "eslint . --fix",
-    "lint:watch": "esw server client config test --watch --changed --clear --fix",
+    "lint:watch": "esw . --watch --changed --fix",
     "stylelint": "stylelint client/**/*.js",
     "test": "jest server client",
     "cover": "npm run test -- --coverage",
