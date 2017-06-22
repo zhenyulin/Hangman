@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Actions as Controllers } from 'controllers/hangman';
@@ -8,6 +9,19 @@ import GamePanel from './elements/game-panel';
 import BasicButton from 'components/basic-button';
 
 export class Hangman extends React.PureComponent {
+  static propTypes = {
+    className: PropTypes.string,
+    life: PropTypes.number,
+    mask: PropTypes.string,
+    complete: PropTypes.bool,
+    guessed: PropTypes.object,
+    end: PropTypes.bool,
+    guess: PropTypes.func,
+    next: PropTypes.func,
+    restart: PropTypes.func,
+    navigate: PropTypes.func,
+  };
+
   render() {
     const { className, end, complete, life, guessed, mask } = this.props;
     const { guess, next, restart, navigate } = this.props;
@@ -15,7 +29,7 @@ export class Hangman extends React.PureComponent {
       <div className={className}>
         {end ? <div>You have played all games.</div> :
         <GamePanel {...{ life, complete, mask, guessed, guess }} />
-				}
+      }
         <div className="navigation">
           <BasicButton
             className="statusButton"
@@ -55,28 +69,28 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const component = styled(Hangman)`
-	width: 360px;
-	margin: 240px auto;
-	font-family: 'Helvetica';
-	line-height: 30px;
+width: 360px;
+margin: 240px auto;
+font-family: 'Helvetica';
+line-height: 30px;
 
-	.navigation {
-		margin-top: 30px;
-		line-height: 50px;
-		border-top: 1px solid grey;
+.navigation {
+  margin-top: 30px;
+  line-height: 50px;
+  border-top: 1px solid grey;
 
-		.nextButton {
-			background: lightgreen;
-			float: right;
-			margin-top: 10px;
-		}
+  .nextButton {
+   background: lightgreen;
+   float: right;
+   margin-top: 10px;
+ }
 
-		.restartButton {
-			background: tomato;
-			float: right;
-			margin-top: 10px;
-		}
-	}
+ .restartButton {
+   background: tomato;
+   float: right;
+   margin-top: 10px;
+ }
+}
 `;
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);

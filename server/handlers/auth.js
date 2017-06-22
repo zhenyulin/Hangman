@@ -1,16 +1,13 @@
 import express from 'express';
 import JWT from 'jsonwebtoken';
 import User from 'server/models/user';
-import {
-	requireLogin,
-	requireAuth,
-} from 'server/middleware/auth';
+import { requireLogin, requireAuth } from 'server/middleware/auth';
 import { JWT_SECRET } from 'server/config/constant';
 
 const router = express.Router();
 
 /*
-	Utility Functions
+  Utility Functions
  */
 const generateToken = user => JWT.sign(user, JWT_SECRET);
 
@@ -22,7 +19,7 @@ const publicUserInfo = user => ({
 });
 
 /*
-	Router Detail
+  Router Detail
  */
 router.get('/status', requireAuth, (req, res) => {
   if (!req.user) {
@@ -56,28 +53,28 @@ router.post('/register', (req, res, next) => {
   }
 
   User.findOne({ email })
-		.catch(err => next(err))
-		.then((existingUser) => {
-  if (existingUser) {
-    return res.status(422).send({ error: 'The email is already used.' });
-  }
+  .catch(err => next(err))
+  .then((existingUser) => {
+    if (existingUser) {
+      return res.status(422).send({ error: 'The email is already used.' });
+    }
 
-  const user = new User({
-    email,
-    password,
-    profile: { firstName, lastName },
-  });
+    const user = new User({
+      email,
+      password,
+      profile: { firstName, lastName },
+    });
 
-  user.save()
-				.catch(err => next(err))
-				.then((user) => {
-  const userInfo = publicUserInfo(user);
-  res.status(201).json({
-    token: generateToken(userInfo),
-    user: userInfo,
+    user.save()
+    .catch(err => next(err))
+    .then((savedUser) => {
+      const userInfo = publicUserInfo(savedUser);
+      return res.status(201).json({
+        token: generateToken(userInfo),
+        user: userInfo,
+      });
+    });
   });
-});
-});
 });
 
 export default router;

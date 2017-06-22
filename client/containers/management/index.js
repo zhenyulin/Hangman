@@ -8,10 +8,11 @@ import BasicButton from 'components/basic-button';
 
 export class Management extends React.PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     played: PropTypes.object,
+    navigate: PropTypes.func,
   };
 
-	// TODO: clean up the workaround
   static defaultProps = {
     played: {
       size: 0,
@@ -26,7 +27,7 @@ export class Management extends React.PureComponent {
         <div className="summary">
           {played.size ? Object.keys(played.toJS()).map(item => (
             <div key={item}>{item} : {played[item] ? 'success' : 'fail'}</div>
-						)) : 'No word has been played'}
+        )) : 'No word has been played'}
         </div>
         <div className="navigation">
           <BasicButton
@@ -49,20 +50,20 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const component = styled(Management)`
-	width: 360px;
-	margin: 240px auto;
-	font-family: 'Helvetica';
-	line-height: 30px;
+width: 360px;
+margin: 240px auto;
+font-family: 'Helvetica';
+line-height: 30px;
 
-	.summary {
-		height: 150px;
-	}
+.summary {
+  height: 150px;
+}
 
-	.navigation {
-		margin-top: 30px;
-		line-height: 50px;
-		border-top: 1px solid grey;
-	}
+.navigation {
+  margin-top: 30px;
+  line-height: 50px;
+  border-top: 1px solid grey;
+}
 `;
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);

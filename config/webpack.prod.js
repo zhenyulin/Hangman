@@ -14,13 +14,10 @@ module.exports = {
   },
   resolve: {
     modules: [
-      path.resolve('./client'),
       'node_modules',
+      path.resolve('./client'),
     ],
     extensions: ['.js', '.jsx'],
-    alias: {
-      request: 'browser-request',
-    },
   },
   module: {
     rules: [
