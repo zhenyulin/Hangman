@@ -21,7 +21,7 @@
     "build:server": "babel server -d dist/server --copy-files --ignore server/**/*.spec.js",
     "build:client": "webpack -p --config config/webpack.prod.js --progress --bail",
     "build": "npm run build:server && npm run build:client",
-    "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/server.js",
+    "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/index.js",
     "serve:fresh": "npm run build && npm run serve"
   },
   "jest": {
