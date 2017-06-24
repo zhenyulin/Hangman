@@ -29,12 +29,12 @@ A simple version of Hangman web app, with game status persistent across server a
  * integrate Reselect, RxJS / Redux-saga
  * Update Segment Tracking to show game passing rate
  * update e2e test framework to Cumcumber
- * add auth to the boilerplate and support individual status
- * CI configuration update to travis
+ * add JWT auth to the boilerplate and support individual status
+ * travis CI integration with dockerhub
  * explanation of each dependencies
  * file watcher update to `chokidar/watchman`
- * eslint resolver
- * babel resolver and production
+ * babel resolver and production setting
+ * update to Webpack 3
 
 ---
 
@@ -49,7 +49,6 @@ A simple version of Hangman web app, with game status persistent across server a
  * react-addons-perf (react performance benchmark tool)
  * react-addons-test-utils (peer dependency of enzyme)
  * react-dom
- * react-hot-loader
  * react-redux
  * react-redux-router
  * react-router

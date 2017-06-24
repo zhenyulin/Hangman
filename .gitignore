@@ -1,12 +1,18 @@
-/node_modules/
-/dist/
-/coverage
-/reports
-docker_compose/
-buid/
+# dependencies
+node_modules/
 
-npm-debug.log
-.babel.json
-.v8flags.5.4.500.36.undefined.json
+# build
+dist/
+build/
+.build
+
+# test output
+coverage/
+reports/
+
+# devlopment cache
+docker_compose/
+data/
+
+# dot files
 .DS_Store
-.config

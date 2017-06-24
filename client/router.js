@@ -8,7 +8,7 @@ export default class Router extends Component {
   render() {
     return (
       <div>
-        <Route path="/" component={Hangman} />
+        <Route exact path="/" component={Hangman} />
         <Route path="/management" component={Management} />
       </div>
     );
