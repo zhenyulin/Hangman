@@ -3,11 +3,11 @@ import { routerMiddleware } from 'react-router-redux';
 import { createTracker } from 'redux-segment';
 
 import reducer from 'controllers';
-import remoteAction from 'middleware/remote';
+import socketMiddleware from 'middleware/socket';
 
 export default function setupStore(socket, history) {
   const middleware = [
-    remoteAction(socket),
+    socketMiddleware(socket),
     routerMiddleware(history),
     createTracker(),
   ];
