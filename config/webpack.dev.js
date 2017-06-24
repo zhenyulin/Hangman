@@ -6,7 +6,6 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: [
-    'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     path.resolve('./client/index.js'),
   ],

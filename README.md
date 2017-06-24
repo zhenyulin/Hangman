@@ -51,7 +51,6 @@ A simple version of Hangman web app, with game status persistent across server a
  * react-addons-perf (react performance benchmark tool)
  * react-addons-test-utils (peer dependency of enzyme)
  * react-dom
- * react-hot-loader
  * react-redux
  * react-redux-router
  * react-router

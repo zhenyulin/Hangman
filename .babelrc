@@ -5,7 +5,6 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "react-hot-loader/babel",
     ["module-resolver", {
       "alias": {
        "server": "./server",
