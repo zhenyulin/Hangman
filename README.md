@@ -26,15 +26,17 @@ A simple version of Hangman web app, with game status persistent across server a
  * visit [Demo](http://elitir.com:3456/)
 
 ## TODO
+ * eslint rules update
  * integrate Reselect, RxJS / Redux-saga
  * Update Segment Tracking to show game passing rate
  * update e2e test framework to Cumcumber
- * add auth to the boilerplate and support individual status
- * CI configuration update to travis
+ * add JWT auth to the boilerplate and support individual status
+ * travis CI integration with dockerhub
  * explanation of each dependencies
  * file watcher update to `chokidar/watchman`
- * eslint resolver
- * babel resolver and production
+ * babel resolver and production setting
+ * update dotfile to json/js/yml files if practical
+ * update to Webpack 3
 
 ---
 

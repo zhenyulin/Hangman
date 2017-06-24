@@ -26,6 +26,7 @@ const server = http.Server(app);
 const io = SocketIO(server);
 const store = setupStore();
 connectDB();
+configIO(io, store);
 
 if (process.env.NODE_ENV !== 'production') {
   const webpackConfig = require('config/webpack.dev');
@@ -37,8 +38,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(webpackHotMiddleware(compiler));
   app.use(morgan('dev'));
 }
-
-configIO(io, store);
 
 app.use(helmet());
 app.use(cors());
