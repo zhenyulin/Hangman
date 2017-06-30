@@ -1,7 +1,7 @@
 import express from 'express';
 
 import index from './handlers/index';
-import auth from 'server/handlers/auth';
+import auth from './handlers/auth';
 
 const router = express.Router();
 

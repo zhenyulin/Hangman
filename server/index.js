@@ -3,9 +3,9 @@ import SocketIO from 'socket.io';
 
 import app from './server';
 import { PORT } from './config/constant';
-import setupStore from './store';
 import connectDB from './config/db';
-import configIO from './socket';
+import setupStore from './middleware/store';
+import configIO from './middleware/socket';
 
 let currentApp = app;
 const server = http.createServer(app);

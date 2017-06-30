@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { Actions as Controllers } from 'controllers/hangman';
 import { push } from 'react-router-redux';
 
-import GamePanel from './elements/game-panel';
-import BasicButton from 'components/basic-button';
+import { Actions as Controllers } from 'controllers/hangman';
+import GamePanel from 'components/modules/game-panel';
+import BasicButton from 'components/elements/basic-button';
 
 export class Hangman extends React.PureComponent {
   static propTypes = {
@@ -14,7 +14,7 @@ export class Hangman extends React.PureComponent {
     life: PropTypes.number,
     mask: PropTypes.string,
     complete: PropTypes.bool,
-    guessed: PropTypes.object,
+    guessed: PropTypes.arrayOf(PropTypes.string),
     end: PropTypes.bool,
     guess: PropTypes.func,
     next: PropTypes.func,
@@ -57,7 +57,7 @@ const mapStateToProps = state => ({
   end: state.hangman.get('end'),
   complete: state.hangman.get('complete'),
   life: state.hangman.get('life'),
-  guessed: state.hangman.get('guessed'),
+  guessed: state.hangman.get('guessed').toJS(),
   mask: state.hangman.get('mask'),
 });
 

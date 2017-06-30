@@ -1,21 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
+  target: 'web',
   entry: path.resolve('./client/index.js'),
   output: {
-    path: path.resolve('./dist/client/'),
-    filename: 'bundle.js',
+    path: path.resolve('./dist/'),
+    filename: 'client.js',
     publicPath: '/',
   },
   resolve: {
     modules: [
+      path.resolve('./client'), // to resolve path liek '/components' on client
       'node_modules',
-      path.resolve('./client'),
     ],
-    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -49,10 +48,6 @@ module.exports = {
       compress: {
         warnings: false,
       },
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'index.html',
-      template: './client/index.html',
     }),
   ],
 };

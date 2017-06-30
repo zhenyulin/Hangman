@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { push } from 'react-router-redux';
 
-import BasicButton from 'components/basic-button';
+import BasicButton from 'components/elements/basic-button';
 
 export class Management extends React.PureComponent {
   static propTypes = {

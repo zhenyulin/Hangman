@@ -1,43 +1,24 @@
-import path from 'path';
-
-import webpack from 'webpack';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
+  target: 'web',
   entry: [
-    'webpack-hot-middleware/client',
+    'webpack-hot-middleware/client?timeout=2000',
     path.resolve('./client/index.js'),
   ],
   output: {
     path: path.resolve('./client/'),
-    filename: 'bundle.js',
+    filename: 'client.js',
     publicPath: '/',
   },
   resolve: {
     modules: [
-      path.resolve('./client'),
+      path.resolve('./client'), // to resolve path liek '/components' on client
       'node_modules',
     ],
-    extensions: ['.js', '.jsx'],
-    alias: {
-      request: 'browser-request',
-    },
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-      },
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'index.html',
-      template: './client/index.html',
-    }),
-  ],
   module: {
     rules: [
       {
@@ -57,5 +38,22 @@ module.exports = {
         ],
       },
     ],
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
+  ],
+  stats: {
+    colors: true,
+    modules: false,
+    version: false,
+    hash: false,
+    timings: false,
   },
 };

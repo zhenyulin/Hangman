@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import LetterButtonGroup from 'components/letter-button-group';
+import LetterButtonGroup from 'components/widgets/letter-button-group';
 
 export class GamePanel extends React.PureComponent {
   static propTypes = {
@@ -10,7 +10,7 @@ export class GamePanel extends React.PureComponent {
     life: PropTypes.number,
     mask: PropTypes.string,
     complete: PropTypes.bool,
-    guessed: PropTypes.object,
+    guessed: PropTypes.arrayOf(PropTypes.string),
     guess: PropTypes.func,
   };
 
@@ -23,7 +23,7 @@ export class GamePanel extends React.PureComponent {
         <div>Animal Name: {mask}</div>
         {complete || life === 0 ? null : <LetterButtonGroup guess={guess} guessed={guessed} />}
         {complete ? <div>You have got the right word!</div> : null}
-        {life === 0 ? <div>Sorry, you didn't get it this time.</div> : null}
+        {life === 0 ? <div>Sorry, you did not get it this time.</div> : null}
       </div>
     );
   }

@@ -10,18 +10,18 @@
     "url": "git://github.com/zhenyulin/hangman.git"
   },
   "scripts": {
-    "start": "rm -rf .build && webpack --config config/webpack.server.js",
+    "start": "webpack --config config/webpack.server.dev.js --progress",
+    "watch": "esw . --watch --changed --fix",
     "lint": "eslint . --fix",
-    "lint:watch": "esw . --watch --changed --fix",
     "stylelint": "stylelint client/**/*.js",
-    "test": "jest server client",
-    "cover": "npm run test -- --coverage",
+    "test": "jest",
+    "cover": "jest --coverage",
     "e2e:setup": "node_modules/selenium-standalone/bin/selenium-standalone install",
     "e2e": "node_modules/.bin/nightwatch --config config/nightwatch.js",
-    "build:server": "babel server -d dist/server --copy-files --ignore server/**/*.spec.js",
-    "build:client": "webpack -p --config config/webpack.prod.js --progress --bail",
+    "build:client": "webpack -p --config config/webpack.client.prod.js --progress --bail",
+    "build:server": "webpack -p --config config/webpack.server.prod.js --progress --bail",
     "build": "npm run build:server && npm run build:client",
-    "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/index.js",
+    "serve": "NODE_ENV=production node dist/server.js",
     "serve:fresh": "npm run build && npm run serve"
   },
   "jest": {
@@ -34,13 +34,10 @@
     ]
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
-    "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-html-import-to-string": "^0.0.1",
     "babel-preset-env": "^1.5.2",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.16.0",
@@ -51,7 +48,6 @@
     "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
-    "eslint-import-resolver-node": "^0.3.0",
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jest": "^20.0.3",
@@ -60,8 +56,7 @@
     "eslint-plugin-react": "^7.0.1",
     "eslint-watch": "^3.1.0",
     "file-loader": "^0.10.1",
-    "html-webpack-plugin": "^2.28.0",
-    "ignore-styles": "^5.0.1",
+    "html-loader": "^0.4.5",
     "jest": "^20.0.4",
     "morgan": "^1.8.1",
     "nightwatch": "^0.9.9",
@@ -74,7 +69,7 @@
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "stylelint-processor-styled-components": "^0.1.0",
-    "webpack": "^2.5.1",
+    "webpack": "^3.0.0",
     "webpack-dev-middleware-webpack-2": "^1.5.1",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-node-externals": "^1.6.0"
@@ -104,6 +99,7 @@
     "reselect": "^3.0.0",
     "socket.io": "^1.5.1",
     "socket.io-client": "^1.5.1",
-    "styled-components": "^2.0.0"
+    "styled-components": "^2.0.0",
+    "styled-components-theme": "^1.0.5"
   }
 }
