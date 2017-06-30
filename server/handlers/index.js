@@ -1,10 +1,15 @@
 import express from 'express';
-import indexPage from '../../client/index.html';
 
 const router = express.Router();
 
 router.get('*', (req, res) => {
-  res.send(indexPage);
+  // if (process.env.NODE_ENV === 'production') {
+  //   const render = require('server/render').default;
+  //   const page = render();
+  //   return res.send(page);
+  // }
+  const page = require('client/index.html');
+  return res.send(page);
 });
 
 export default router;

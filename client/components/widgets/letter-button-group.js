@@ -6,7 +6,7 @@ export class LetterButtonGroup extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     guess: PropTypes.func,
-    guessed: PropTypes.array,
+    guessed: PropTypes.arrayOf(PropTypes.string),
   };
 
   static defaultProps = {

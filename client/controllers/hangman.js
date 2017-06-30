@@ -48,6 +48,10 @@ const initialState = Map({
   mask: '',
 });
 
+function setState(state, newState) {
+  return state.merge(newState);
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_STATE:
@@ -55,8 +59,4 @@ export default function reducer(state = initialState, action) {
     default:
       return state;
   }
-}
-
-function setState(state, newState) {
-  return state.merge(newState);
 }

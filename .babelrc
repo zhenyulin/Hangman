@@ -1,16 +1,10 @@
 {
   "presets": [
     "env",
-    "react"
+    "react",
+    "flow"
   ],
   "plugins": [
-    "transform-html-import-to-string",
     "transform-class-properties",
-    ["module-resolver", {
-      "alias": {
-       "server": "./server",
-       "config": "./config"
-      }
-    }]
   ]
 }

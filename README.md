@@ -6,20 +6,20 @@ A simple version of Hangman web app, with game status persistent across server a
 
  * Use Redux, Immutable as isomorphic state management on both client and server
  * Use Socket.io to streamline client/server data communication
- * CI/CD `GitHub -> CircleCI -> Docker Image -> Private Docker Host`
+ * CI/CD `GitHub -> CircleCI -> Docker Image Hub -> Private Docker Host`
 
 ## Serve
 
  * clone locally
- * run `npm install`
- * run `npm run serve:fresh`
+ * run `yarn install`
+ * run `yarn serve:fresh`
  * visit `http://localhost:3000/` in your browser
 
 ## Test
 
- * unit test `npm run test`
- * test coverage `npm run cover`
- * e2e test `npm run e2e:setup` and `npm run e2e`
+ * unit test `yarn test`
+ * test coverage `yarn cover`
+ * e2e test `yarn e2e:setup` and `yarn e2e`
 
 ## Online Demo
 
@@ -33,8 +33,6 @@ A simple version of Hangman web app, with game status persistent across server a
  * travis CI integration with dockerhub
  * explanation of each dependencies
  * file watcher update to `chokidar/watchman`
- * babel resolver and production setting
- * update to Webpack 3
 
 ---
 
@@ -46,8 +44,8 @@ A simple version of Hangman web app, with game status persistent across server a
  * immutable
  * prop-types
  * react
- * react-addons-perf (react performance benchmark tool)
- * react-addons-test-utils (peer dependency of enzyme)
+ * react-addons-perf `react performance benchmark tool`
+ * react-addons-test-utils `peer dependency of enzyme`
  * react-dom
  * react-redux
  * react-redux-router
@@ -56,6 +54,7 @@ A simple version of Hangman web app, with game status persistent across server a
  * redux-devtools-extension
  * socket.io-client
  * styled-components
+ * styled-components-theme
 
 ### Express Server Dependencies
  * body-parser
@@ -73,8 +72,8 @@ A simple version of Hangman web app, with game status persistent across server a
  * passport-jwt
  * passport-local
  * socket.io
- * webpack-dev-middleware-webpack-2 (express middleware to run webpack 2 bundle task)
- * webpack-hot-middleware (express middleware to monitor bundle task and communicate with client in the browser)
+ * webpack-dev-middleware-webpack-2 `express middleware to run webpack 2 bundle task`
+ * webpack-hot-middleware `express middleware to monitor bundle task and communicate with client in the browser`
 
 ### Linting
  * babel-eslint
@@ -105,9 +104,7 @@ A simple version of Hangman web app, with game status persistent across server a
  * selenium-webdriver
 
 ### Babel Dependencies
- * babel-cli
  * babel-core
- * babel-plugin-module-resolver (file path resolver in babel)
  * babel-plugin-transform-class-properties (enable `static` syntax in class)
  * babel-polyfill
  * babel-preset-env
@@ -118,9 +115,9 @@ A simple version of Hangman web app, with game status persistent across server a
 
 ### Webpack Dependencies
  * babel-loader
- * copy-webpack-plugin
- * extract-text-webpack-plugin
  * file-loader
- * html-webpack-plugin
- * ignore-styles
+ * html-loader
  * webpack
+ * webpack-dev-middleware-webpack-2
+ * webpack-hot-middleware
+ * webpack-node-externals

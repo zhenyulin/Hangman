@@ -30,13 +30,13 @@ export class FunctionButton extends React.PureComponent {
 }
 
 export default styled(FunctionButton)`
-  height: 30px;
-  border: none;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 13px;
+height: 30px;
+border: none;
+margin: 5px;
+cursor: pointer;
+font-size: 13px;
 
-  &[disabled] {
-    color: grey;
-  }
+&[disabled] {
+  color: grey;
+}
 `;

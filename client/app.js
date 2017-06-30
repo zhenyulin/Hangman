@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'react-router-redux';
@@ -11,15 +11,10 @@ const history = createHistory();
 const socket = io.connect();
 const store = setupStore(socket, history);
 
-
-export default class App extends Component {
-  render() {
-    return (
-      <Provider store={store} >
-        <ConnectedRouter history={history}>
-          <Router />
-        </ConnectedRouter>
-      </Provider>
-    );
-  }
-}
+export default () => (
+  <Provider store={store} >
+    <ConnectedRouter history={history}>
+      <Router />
+    </ConnectedRouter>
+  </Provider>
+);

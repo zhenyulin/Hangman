@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import { restart, next, guess } from './core';
-import storedState from 'server/state.json';
+import storedState from 'data/state.json';
 import { RESTART, NEXT, GUESS } from './constant';
 
 export default function reducer(state = fromJS(storedState), action) {
