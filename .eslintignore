@@ -12,7 +12,6 @@ reports/
 
 # devlopment cache
 docker_compose/
-data/
 
 # dot files
 README.md
