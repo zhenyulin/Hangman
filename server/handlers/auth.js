@@ -24,7 +24,7 @@ const publicUserInfo = user => ({
 router.get('/status', requireAuth, (req, res) => {
   if (!req.user) {
     res.status(401).end();
-  }	else {
+  } else {
     res.status(200).end();
   }
 });
@@ -52,7 +52,7 @@ router.post('/register', (req, res, next) => {
     return res.status(422).send({ error: 'You must enter a password.' });
   }
 
-  User.findOne({ email })
+  return User.findOne({ email })
   .catch(err => next(err))
   .then((existingUser) => {
     if (existingUser) {
@@ -65,7 +65,7 @@ router.post('/register', (req, res, next) => {
       profile: { firstName, lastName },
     });
 
-    user.save()
+    return user.save()
     .catch(err => next(err))
     .then((savedUser) => {
       const userInfo = publicUserInfo(savedUser);
