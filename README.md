@@ -30,6 +30,5 @@ A simple version of Hangman web app, with game status persistent across server a
  * Update Segment Tracking to show game passing rate
  * update e2e test framework to Cumcumber
  * add JWT auth to the boilerplate and support individual status
- * travis CI integration with dockerhub
  * explanation of each dependencies
  * file watcher update to `chokidar/watchman`
