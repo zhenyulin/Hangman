@@ -5,16 +5,15 @@ services:
 node_js:
   - "node"
 before_install:
-  - if [ -f ${DOCKER_CACHE_FILE} ]; then gunzip -c ${DOCKER_CACHE_FILE} | docker load; fi
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker pull zhenyulin/hangman
   - docker build . -t zhenyulin/hangman
 script:
   - yarn cover
-  - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p $(dirname ${DOCKER_CACHE_FILE}) ; docker save $(docker history -q $zhenyulin:${TRAVIS_COMMIT} | grep -v '<missing>') | gzip > ${DOCKER_CACHE_FILE}; fi
 after_script:
   - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker push zhenyulin/hangman;
     fi
 branches:
