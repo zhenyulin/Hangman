@@ -10,8 +10,9 @@ env:
     - CACHE_DOCKER_IMAGE=$CACHE_DIR/build.tar.gz
 before_install:
   - if [ -f ${CACHE_DOCKER_IMAGE} ]; then gunzip -c ${CACHE_DOCKER_IMAGE} | docker load; fi
-  - docker build . -t zhenyulin/hangman
-  - docker save zhenyulin/hangman | gzip > ${CACHE_DOCKER_IMAGE}
+  - docker build . -t hangman:build --cache-from hangman:last
+  - docker tag hangman:build hangman:last
+  - docker save hangman:last | gzip > ${CACHE_DOCKER_IMAGE}
 script:
   - yarn cover
 after_script:
@@ -19,6 +20,7 @@ after_script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker tage hangman:last zhenyulin/hangman;
     docker push zhenyulin/hangman;
     fi
 branches:
