@@ -4,18 +4,21 @@ services:
   - docker
 node_js:
   - "node"
+env:
+  global:
+    - CACHE_DIR=$HOME/.cache/docker
+    - CACHE_DOCKER_IMAGE=$CACHE_DIR/build.tar.gz
 before_install:
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker pull zhenyulin/hangman:build
-  - docker build . -t zhenyulin/hangman:build
+  - if [ -f ${CACHE_DOCKER_IMAGE} ]; then gunzip -c ${CACHE_DOCKER_IMAGE} | docker load; fi
+  - docker build . -t zhenyulin/hangman
+  - docker save zhenyulin/hangman | gzip > ${CACHE_DOCKER_IMAGE}
 script:
   - yarn cover
 after_script:
   - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
-  - docker push zhenyulin/hangman:build
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker tag zhenyulin/hangman:build zhenyulin/hangman:latest;
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker push zhenyulin/hangman;
     fi
 branches:
@@ -25,7 +28,4 @@ cache:
   yarn: true
   directories:
   - node_modules
-  - /home/travis/docker/
-env:
-  global:
-    - DOCKER_CACHE_FILE=/home/travis/docker/cache.tar.gz
+  - $CACHE_DIR
