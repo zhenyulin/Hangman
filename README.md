@@ -29,6 +29,3 @@ A simple version of Hangman web app, with game status persistent across server a
  * update e2e test framework to Cumcumber
  * integrate Reselect
  * Update Segment Tracking to show game passing rate
- * add JWT auth to the boilerplate and support individual status
- * explanation of each dependencies
- * file watcher update to `chokidar/watchman`
