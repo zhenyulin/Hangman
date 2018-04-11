@@ -21,11 +21,6 @@ A simple version of Hangman web app, with game status persistent across server a
  * test coverage `yarn cover`
  * e2e test `yarn e2e:setup` and `yarn e2e`
 
-## online demo
+## demo
 
  * visit [Demo](http://elitir.com:3456/)
-
-## TODO
- * update e2e test framework to Cumcumber
- * integrate Reselect
- * Update Segment Tracking to show game passing rate
